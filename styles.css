@@ -613,6 +613,8 @@ section {
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
     perspective: 1000px;
+    display: flex;
+    flex-direction: column;
 }
 
 .service-card::before {
@@ -685,15 +687,17 @@ section {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
+    margin-top: auto;
 }
 
 .service-tags span {
-    padding: 4px 12px;
+    padding: 5px 14px;
     background: rgba(99, 102, 241, 0.08);
     border: 1px solid rgba(99, 102, 241, 0.12);
     border-radius: 50px;
     font-size: 0.75rem;
     color: var(--primary-light);
+    white-space: nowrap;
 }
 
 /* ============================================
@@ -1647,7 +1651,7 @@ section {
     }
 
     .services-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .courses-grid {
@@ -1712,6 +1716,16 @@ section {
     .btn {
         padding: 12px 24px;
         font-size: 0.9rem;
+    }
+
+    .services-grid,
+    .courses-grid,
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-info {
+        grid-template-columns: 1fr;
     }
 
     .footer-links {
