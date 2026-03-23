@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="a76gTypoxhaDFgmi50BoksXwwMmXsJapUOG1Z63zvrE" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="apple-touch-icon" href="assets/favicon.svg">
+    <meta name="theme-color" content="#030014">
+
+    <title>Frontend Development Training — HTML, CSS, JavaScript, React.js | Soseeks India, Bhilai</title>
+    <meta name="description" content="Master Frontend Development at Soseeks India, Bhilai. Complete course covering HTML5, CSS3, JavaScript ES6+, React.js, real-time projects, interview preparation, and deployment. Course fee ₹45,000. Best frontend training in Bhilai, Raipur, Chhattisgarh.">
+    <meta name="keywords" content="frontend development course Bhilai, React.js training Bhilai, HTML CSS JavaScript course Raipur, frontend training Chhattisgarh, web development course Bhilai, React training India, best frontend course Bhilai, learn React.js Bhilai, JavaScript training Raipur, frontend developer course India">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.soseeks.com/frontend-training.html">
+
+    <meta property="og:title" content="Frontend Development Training — Soseeks India, Bhilai">
+    <meta property="og:description" content="Complete Frontend Development course: HTML, CSS, JavaScript, React.js, real-time projects, interview prep & deployment. ₹45,000. Best frontend training in Bhilai.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.soseeks.com/frontend-training.html">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Frontend Development Training",
+        "description": "Complete Frontend Development course covering HTML5, CSS3, JavaScript ES6+, React.js, real-time projects, interview preparation, and deployment setup. Best frontend training in Bhilai, Chhattisgarh.",
+        "provider": {
+            "@type": "Organization",
+            "name": "Soseeks India Pvt Ltd",
+            "url": "https://www.soseeks.com"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "45000",
+            "priceCurrency": "INR",
+            "availability": "https://schema.org/InStock"
+        },
+        "educationalLevel": "Beginner to Advanced",
+        "teaches": ["HTML5", "CSS3", "JavaScript ES6+", "React.js", "Responsive Design", "Git", "Deployment"],
+        "availableLanguage": ["English", "Hindi"],
+        "locationCreated": { "@type": "Place", "name": "Bhilai, Chhattisgarh" },
+        "hasCourseInstance": {
+            "@type": "CourseInstance",
+            "courseMode": "Offline",
+            "instructor": {
+                "@type": "Organization",
+                "name": "Soseeks India Pvt Ltd"
+            }
+        }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Course Page Specific Styles */
+        .course-hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 50%, rgba(236, 72, 153, 0.08) 0%, transparent 60%);
+        }
+
+        .course-hero-inner {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .course-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            border: 1px solid rgba(236, 72, 153, 0.3);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #ec4899;
+            background: rgba(236, 72, 153, 0.08);
+            margin-bottom: 20px;
+        }
+
+        .course-hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .course-hero h1 .gradient-text {
+            background: linear-gradient(135deg, #ec4899, #8b5cf6, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .course-hero-desc {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 32px;
+        }
+
+        .course-hero-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .course-hero-highlights span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: rgba(99, 102, 241, 0.06);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .course-hero-highlights span svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--primary-light);
+            flex-shrink: 0;
+        }
+
+        /* Price Card */
+        .price-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ec4899, #8b5cf6, #6366f1);
+        }
+
+        .price-label {
+            font-family: var(--font-display);
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            margin-bottom: 8px;
+        }
+
+        .price-amount {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ec4899, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 4px;
+        }
+
+        .price-amount span {
+            font-size: 1.2rem;
+            -webkit-text-fill-color: var(--text-dim);
+        }
+
+        .price-note {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            margin-bottom: 28px;
+        }
+
+        .price-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 28px;
+        }
+
+        .price-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(99, 102, 241, 0.06);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .price-features li svg {
+            width: 18px;
+            height: 18px;
+            stroke: #10b981;
+            flex-shrink: 0;
+        }
+
+        /* Syllabus Section */
+        .syllabus-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .module-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .module-card:hover {
+            border-color: rgba(99, 102, 241, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(99, 102, 241, 0.1);
+        }
+
+        .module-num {
+            font-family: var(--font-display);
+            font-size: 0.65rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--primary-light);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .module-num::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .module-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .module-topics {
+            list-style: none;
+        }
+
+        .module-topics li {
+            position: relative;
+            padding-left: 18px;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .module-topics li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--primary-light);
+        }
+
+        .module-duration {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 4px 12px;
+            background: rgba(99, 102, 241, 0.06);
+            border: 1px solid rgba(99, 102, 241, 0.12);
+            border-radius: 50px;
+            font-size: 0.72rem;
+            color: var(--primary-light);
+            letter-spacing: 1px;
+        }
+
+        /* Projects Section */
+        .projects-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .project-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 24px;
+            transition: all 0.3s;
+        }
+
+        .project-item:hover {
+            border-color: rgba(99, 102, 241, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .project-item h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .project-item p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 12px;
+        }
+
+        .project-tech span {
+            padding: 3px 10px;
+            background: rgba(99, 102, 241, 0.06);
+            border: 1px solid rgba(99, 102, 241, 0.1);
+            border-radius: 50px;
+            font-size: 0.7rem;
+            color: var(--primary-light);
+        }
+
+        /* Timeline */
+        .timeline {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 24px;
+            padding-bottom: 32px;
+            position: relative;
+        }
+
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 19px;
+            top: 44px;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-dot {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            background: rgba(99, 102, 241, 0.1);
+            border: 2px solid var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--primary-light);
+        }
+
+        .timeline-content h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .timeline-content p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .cta-section h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            color: var(--text-muted);
+            max-width: 550px;
+            margin: 0 auto 32px;
+        }
+
+        .cta-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Back Link */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: var(--primary-light);
+        }
+
+        .back-link svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        @media (max-width: 768px) {
+            .course-hero-inner {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .syllabus-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .price-card {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="scrolled">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Soseeks</a>
+            <ul class="nav-links">
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#courses">Training</a></li>
+                <li><a href="index.html#startup">Startups</a></li>
+                <li><a href="index.html#products">Products</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact" class="nav-cta">Get In Touch</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu">
+        <ul>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#courses">Training</a></li>
+            <li><a href="index.html#startup">Startups</a></li>
+            <li><a href="index.html#products">Products</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Course Hero -->
+    <section class="course-hero">
+        <div class="section-container">
+            <a href="index.html#courses" class="back-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Back to All Courses
+            </a>
+            <div class="course-hero-inner">
+                <div>
+                    <div class="course-hero-badge">Creative &bull; In Demand</div>
+                    <h1>Frontend Development <span class="gradient-text">Training</span></h1>
+                    <p class="course-hero-desc">Go from zero to job-ready frontend developer. Master HTML, CSS, JavaScript, and React.js through hands-on projects, interview preparation, and real deployment experience. Build a professional portfolio that gets you hired.</p>
+                    <div class="course-hero-highlights">
+                        <span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                            3-4 Months
+                        </span>
+                        <span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+                            7 Modules
+                        </span>
+                        <span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6"/><path d="M8 6l-6 6 6 6"/></svg>
+                            4+ Real Projects
+                        </span>
+                        <span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            Interview Ready
+                        </span>
+                    </div>
+                    <a href="index.html#contact" class="btn btn-primary">
+                        <span>Enroll Now</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+                <div class="price-card reveal-up">
+                    <div class="price-label">Course Fee</div>
+                    <div class="price-amount">₹45,000</div>
+                    <p class="price-note">One-time payment &bull; EMI available</p>
+                    <ul class="price-features">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Live classroom training
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            4+ real-time projects
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Interview preparation
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Deployment & hosting setup
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Portfolio website included
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Certificate of completion
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Lifetime doubt support
+                        </li>
+                    </ul>
+                    <a href="index.html#contact" class="btn btn-primary btn-full">Enroll Now — ₹45,000</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Syllabus Section -->
+    <section id="syllabus">
+        <div class="section-container">
+            <div class="section-header reveal-up">
+                <span class="section-tag">What You'll Learn</span>
+                <h2>Complete <span class="gradient-text">Syllabus</span></h2>
+                <p>A structured, project-driven curriculum designed to make you a confident frontend developer</p>
+            </div>
+            <div class="syllabus-grid">
+                <div class="module-card reveal-up" style="--d:0.1s">
+                    <div class="module-num">Module 01</div>
+                    <h3>HTML5 — Structure & Semantics</h3>
+                    <ul class="module-topics">
+                        <li>HTML fundamentals & document structure</li>
+                        <li>Semantic elements (header, nav, main, article, section)</li>
+                        <li>Forms, inputs & validations</li>
+                        <li>Tables, media elements (audio, video)</li>
+                        <li>Accessibility best practices (ARIA)</li>
+                        <li>SEO-friendly HTML structure</li>
+                    </ul>
+                    <span class="module-duration">2 Weeks</span>
+                </div>
+
+                <div class="module-card reveal-up" style="--d:0.2s">
+                    <div class="module-num">Module 02</div>
+                    <h3>CSS3 — Styling & Layouts</h3>
+                    <ul class="module-topics">
+                        <li>CSS selectors, specificity & cascade</li>
+                        <li>Box model, positioning & z-index</li>
+                        <li>Flexbox layout system (deep dive)</li>
+                        <li>CSS Grid layout (deep dive)</li>
+                        <li>Responsive design & media queries</li>
+                        <li>Animations, transitions & transforms</li>
+                        <li>CSS variables & modern techniques</li>
+                    </ul>
+                    <span class="module-duration">3 Weeks</span>
+                </div>
+
+                <div class="module-card reveal-up" style="--d:0.3s">
+                    <div class="module-num">Module 03</div>
+                    <h3>JavaScript — Core & Advanced</h3>
+                    <ul class="module-topics">
+                        <li>Variables, data types & operators</li>
+                        <li>Functions, scope & closures</li>
+                        <li>Arrays, objects & destructuring (ES6+)</li>
+                        <li>DOM manipulation & event handling</li>
+                        <li>Async JS — Promises, async/await, fetch API</li>
+                        <li>Error handling & debugging</li>
+                        <li>ES6+ features (spread, rest, modules)</li>
+                        <li>Local storage & session storage</li>
+                    </ul>
+                    <span class="module-duration">4 Weeks</span>
+                </div>
+
+                <div class="module-card reveal-up" style="--d:0.4s">
+                    <div class="module-num">Module 04</div>
+                    <h3>React.js — Modern UI Development</h3>
+                    <ul class="module-topics">
+                        <li>React fundamentals & JSX</li>
+                        <li>Components — functional & class</li>
+                        <li>Props, state & lifecycle</li>
+                        <li>Hooks (useState, useEffect, useRef, useContext)</li>
+                        <li>React Router — navigation & routing</li>
+                        <li>State management (Context API)</li>
+                        <li>API integration with fetch/axios</li>
+                        <li>Performance optimization & best practices</li>
+                    </ul>
+                    <span class="module-duration">4 Weeks</span>
+                </div>
+
+                <div class="module-card reveal-up" style="--d:0.5s">
+                    <div class="module-num">Module 05</div>
+                    <h3>Real-Time Projects</h3>
+                    <ul class="module-topics">
+                        <li>Personal portfolio website (HTML/CSS/JS)</li>
+                        <li>E-commerce product page with cart</li>
+                        <li>Weather app with live API integration</li>
+                        <li>Full React dashboard application</li>
+                        <li>Collaborative team project (real-world workflow)</li>
+                    </ul>
+                    <span class="module-duration">3 Weeks</span>
+                </div>
+
+                <div class="module-card reveal-up" style="--d:0.6s">
+                    <div class="module-num">Module 06</div>
+                    <h3>Interview Preparation</h3>
+                    <ul class="module-topics">
+                        <li>Top 50 HTML/CSS interview questions</li>
+                        <li>JavaScript concepts — hoisting, closures, prototypes</li>
+                        <li>React interview patterns & coding challenges</li>
+                        <li>Data structures basics for frontend roles</li>
+                        <li>Mock interviews with feedback</li>
+                        <li>Resume building & LinkedIn optimization</li>
+                    </ul>
+                    <span class="module-duration">1 Week</span>
+                </div>
+
+                <div class="module-card reveal-up" style="--d:0.7s">
+                    <div class="module-num">Module 07</div>
+                    <h3>Deployment & Setup</h3>
+                    <ul class="module-topics">
+                        <li>Git & GitHub version control</li>
+                        <li>Deploying on Netlify & Vercel</li>
+                        <li>Custom domain setup & DNS</li>
+                        <li>CI/CD basics — auto-deploy from GitHub</li>
+                        <li>Performance optimization & Lighthouse audit</li>
+                        <li>SEO basics for developers</li>
+                    </ul>
+                    <span class="module-duration">1 Week</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Showcase -->
+    <section id="projects-showcase" style="background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-surface) 50%, var(--bg-dark) 100%);">
+        <div class="section-container">
+            <div class="section-header reveal-up">
+                <span class="section-tag">Build Real Things</span>
+                <h2>Projects You'll <span class="gradient-text">Build</span></h2>
+                <p>Not tutorials — real-world projects that go in your portfolio and impress recruiters</p>
+            </div>
+            <div class="projects-list">
+                <div class="project-item reveal-up" style="--d:0.1s">
+                    <h4>Personal Portfolio</h4>
+                    <p>A stunning personal portfolio with animations, responsive design, and contact form — your digital identity.</p>
+                    <div class="project-tech">
+                        <span>HTML5</span><span>CSS3</span><span>JavaScript</span>
+                    </div>
+                </div>
+                <div class="project-item reveal-up" style="--d:0.2s">
+                    <h4>E-Commerce Store</h4>
+                    <p>Product listing page with cart functionality, filters, search, and responsive mobile-first design.</p>
+                    <div class="project-tech">
+                        <span>HTML</span><span>CSS Grid</span><span>JavaScript</span>
+                    </div>
+                </div>
+                <div class="project-item reveal-up" style="--d:0.3s">
+                    <h4>Weather Dashboard</h4>
+                    <p>Live weather app fetching real-time data from APIs with location search and beautiful UI.</p>
+                    <div class="project-tech">
+                        <span>React.js</span><span>API</span><span>CSS</span>
+                    </div>
+                </div>
+                <div class="project-item reveal-up" style="--d:0.4s">
+                    <h4>React Admin Dashboard</h4>
+                    <p>Full-featured admin panel with charts, tables, routing, authentication, and dark mode.</p>
+                    <div class="project-tech">
+                        <span>React.js</span><span>React Router</span><span>Context API</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey Timeline -->
+    <section id="journey">
+        <div class="section-container">
+            <div class="section-header reveal-up">
+                <span class="section-tag">Your Learning Path</span>
+                <h2>The <span class="gradient-text">Journey</span></h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item reveal-up" style="--d:0.1s">
+                    <div class="timeline-dot">01</div>
+                    <div class="timeline-content">
+                        <h4>Foundation — HTML & CSS</h4>
+                        <p>Build a strong foundation with semantic HTML and modern CSS layouts. You'll create your first responsive websites from scratch.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal-up" style="--d:0.2s">
+                    <div class="timeline-dot">02</div>
+                    <div class="timeline-content">
+                        <h4>Logic — JavaScript Mastery</h4>
+                        <p>Learn programming logic, DOM manipulation, API calls, and async patterns. Build interactive applications that respond to user input.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal-up" style="--d:0.3s">
+                    <div class="timeline-dot">03</div>
+                    <div class="timeline-content">
+                        <h4>Framework — React.js</h4>
+                        <p>Master component-based architecture, state management, routing, and hooks. Build production-grade single page applications.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal-up" style="--d:0.4s">
+                    <div class="timeline-dot">04</div>
+                    <div class="timeline-content">
+                        <h4>Real Projects & Portfolio</h4>
+                        <p>Build 4+ real-world projects, create your developer portfolio, and deploy everything live with custom domains.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal-up" style="--d:0.5s">
+                    <div class="timeline-dot">05</div>
+                    <div class="timeline-content">
+                        <h4>Interview Prep & Launch</h4>
+                        <p>Mock interviews, resume building, LinkedIn optimization, and deployment. Walk out ready to land your first frontend developer role.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="section-container">
+            <div class="reveal-up">
+                <span class="section-tag">Ready to Start?</span>
+                <h2>Begin Your Frontend <span class="gradient-text">Journey</span></h2>
+                <p>Join the next batch and transform yourself into a professional frontend developer in 3-4 months.</p>
+                <div class="cta-actions">
+                    <a href="index.html#contact" class="btn btn-primary">
+                        <span>Enroll Now — ₹45,000</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="tel:+918500518050" class="btn btn-outline">
+                        <span>Call +91 8500518050</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-grid-bg"></div>
+        <div class="section-container">
+            <div class="footer-bottom" style="padding: 24px 0;">
+                <p>&copy; 2026 Soseeks India Pvt Ltd. All rights reserved.</p>
+                <p>Plot 13, Sun City, Aryaa Nagar, Kohka, IIT Bhilai Road, Bhilai, Chhattisgarh 490023</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Scroll reveal
+        const revealElements = document.querySelectorAll('.reveal-up');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        revealElements.forEach(el => revealObserver.observe(el));
+    </script>
+</body>
+</html>
