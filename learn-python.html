@@ -238,10 +238,11 @@
             }
         });
 
-        // 5. DevTools detection — size-based
+        // 5. DevTools detection — size-based (desktop only)
         var wall = document.getElementById('protection-wall');
         var threshold = 160;
         function checkDevTools(){
+            if (window.innerWidth < 1024) { wall.style.display = 'none'; return; }
             var w = window.outerWidth - window.innerWidth > threshold;
             var h = window.outerHeight - window.innerHeight > threshold;
             if(w || h){
