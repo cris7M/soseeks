@@ -246,7 +246,7 @@ class PythonAcademy {
 
         container.innerHTML = `
         <div class="dash-hero">
-            <h1>Welcome to Python <span class="glow">Academy</span></h1>
+            <h1>Core <span class="glow">Python</span></h1>
             <p>Master Core Python from fundamentals to advanced concurrency — with real-world analogies, animated examples, and interview-ready quizzes.</p>
         </div>
         <div class="dash-grid">
@@ -559,23 +559,23 @@ class PythonAcademy {
         const builtins = ['print', 'len', 'range', 'type', 'int', 'str', 'float', 'list', 'dict', 'set', 'tuple', 'bool', 'input', 'open', 'enumerate', 'zip', 'map', 'filter', 'sorted', 'reversed', 'sum', 'min', 'max', 'abs', 'round', 'isinstance', 'super', 'property', 'staticmethod', 'classmethod', 'next', 'iter'];
         const bools = ['True', 'False', 'None'];
 
-        let result = line;
-        result = result.replace(/(#.*)$/gm, '<span class="syn-cm">$1</span>');
-        result = result.replace(/(&quot;.*?&quot;|&#x27;.*?&#x27;|".*?"|'.*?')/g, '<span class="syn-str">$1</span>');
-        result = result.replace(/(f)(&#x27;|&quot;|"|')/g, '<span class="syn-fn">$1</span>$2');
-        result = result.replace(/\b(\d+\.?\d*)\b/g, '<span class="syn-num">$1</span>');
-        result = result.replace(/@(\w+)/g, '<span class="syn-dec">@$1</span>');
-        result = result.replace(/\bself\b/g, '<span class="syn-self">self</span>');
-        bools.forEach(b => {
-            result = result.replace(new RegExp(`\\b${b}\\b`, 'g'), `<span class="syn-bool">${b}</span>`);
-        });
-        keywords.forEach(kw => {
-            result = result.replace(new RegExp(`\\b(${kw})\\b(?![^<]*>)`, 'g'), '<span class="syn-kw">$1</span>');
-        });
-        builtins.forEach(bi => {
-            result = result.replace(new RegExp(`\\b(${bi})\\b(?=\\s*\\()(?![^<]*>)`, 'g'), '<span class="syn-bi">$1</span>');
-        });
-        return result;
+        const tokens = [];
+        const hold = (html) => { tokens.push(html); return `\x01${tokens.length - 1}\x01`; };
+
+        let r = line;
+
+        r = r.replace(/(#.*)$/gm, m => hold(`<span class="syn-cm">${m}</span>`));
+        r = r.replace(/(f)(&quot;|&#x27;)/g, (_, f, q) => hold(`<span class="syn-fn">${f}</span>`) + q);
+        r = r.replace(/(&quot;.*?&quot;|&#x27;.*?&#x27;)/g, m => hold(`<span class="syn-str">${m}</span>`));
+        r = r.replace(/@(\w+)/g, (_, n) => hold(`<span class="syn-dec">@${n}</span>`));
+        r = r.replace(/\bself\b/g, () => hold('<span class="syn-self">self</span>'));
+        bools.forEach(b => { r = r.replace(new RegExp(`\\b${b}\\b`, 'g'), () => hold(`<span class="syn-bool">${b}</span>`)); });
+        builtins.forEach(bi => { r = r.replace(new RegExp(`\\b(${bi})\\b(?=\\s*\\()`, 'g'), m => hold(`<span class="syn-bi">${m}</span>`)); });
+        keywords.forEach(kw => { r = r.replace(new RegExp(`\\b(${kw})\\b`, 'g'), m => hold(`<span class="syn-kw">${m}</span>`)); });
+        r = r.replace(/\b(\d+\.?\d*)\b/g, m => hold(`<span class="syn-num">${m}</span>`));
+
+        tokens.forEach((html, i) => { r = r.replace(`\x01${i}\x01`, html); });
+        return r;
     }
 
     escHtml(str) {
