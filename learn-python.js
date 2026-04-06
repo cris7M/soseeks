@@ -18,8 +18,18 @@ class PythonAcademy {
 
     init() {
         this.loadProgress();
-        if (localStorage.getItem(STORAGE_KEY + '_auth') === 'true') {
-            this.unlock();
+        const authTime = localStorage.getItem(STORAGE_KEY + '_auth_time');
+        const isAuth = localStorage.getItem(STORAGE_KEY + '_auth') === 'true';
+
+        if (isAuth && authTime) {
+            const elapsed = Date.now() - parseInt(authTime, 10);
+            const TWENTY_FOUR_HOURS = 24 * 60 * 60 * 1000;
+            if (elapsed < TWENTY_FOUR_HOURS) {
+                this.unlock();
+            } else {
+                this.lock();
+                this.showToast('Access expired. Please enter a new code.', 4000);
+            }
         }
         this.bindEvents();
     }
@@ -52,6 +62,7 @@ class PythonAcademy {
 
         if (input.value.trim().toUpperCase() === ACCESS_CODE) {
             localStorage.setItem(STORAGE_KEY + '_auth', 'true');
+            localStorage.setItem(STORAGE_KEY + '_auth_time', Date.now().toString());
             this.unlock();
         } else {
             error.textContent = 'Invalid access code. Please try again.';
@@ -78,6 +89,7 @@ class PythonAcademy {
 
     lock() {
         localStorage.removeItem(STORAGE_KEY + '_auth');
+        localStorage.removeItem(STORAGE_KEY + '_auth_time');
         location.reload();
     }
 
