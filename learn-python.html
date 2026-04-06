@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Core Python Learning Platform | Soseeks Academy</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="learn-python.css">
+</head>
+<body>
+    <!-- ========== ACCESS GATE ========== -->
+    <div id="gate">
+        <div class="gate-particles"></div>
+        <div class="gate-card">
+            <div class="gate-glow"></div>
+            <div class="gate-logo">Soseeks</div>
+            <h1 class="gate-title">Python <span>Academy</span></h1>
+            <p class="gate-desc">Enter your access code to unlock the learning platform</p>
+            <div class="gate-input-group">
+                <input type="password" id="gate-code" placeholder="Enter Access Code" autocomplete="off" spellcheck="false">
+                <button id="gate-btn" aria-label="Unlock">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+            </div>
+            <p id="gate-error" class="gate-error"></p>
+            <div class="gate-hint">Hint: Contact Soseeks to get your access code</div>
+        </div>
+    </div>
+
+    <!-- ========== MAIN APP ========== -->
+    <div id="app" class="app-hidden">
+        <!-- Top Bar -->
+        <header id="topbar">
+            <div class="topbar-left">
+                <button id="sidebar-toggle" class="topbar-hamburger" aria-label="Toggle sidebar">
+                    <span></span><span></span><span></span>
+                </button>
+                <a href="index.html" class="topbar-logo">Soseeks</a>
+                <span class="topbar-sep">|</span>
+                <span class="topbar-label">Python Academy</span>
+            </div>
+            <div class="topbar-progress">
+                <div class="topbar-progress-track">
+                    <div class="topbar-progress-fill" id="topbar-progress"></div>
+                </div>
+                <span id="topbar-progress-text" class="topbar-progress-label">0%</span>
+            </div>
+            <div class="topbar-right">
+                <button id="btn-home" class="topbar-icon-btn" title="Dashboard">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                </button>
+                <button id="btn-lock" class="topbar-icon-btn" title="Lock Platform">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Sidebar -->
+        <aside id="sidebar" class="sidebar-open">
+            <div class="sidebar-head">
+                <div class="sidebar-ring-wrap">
+                    <svg class="sidebar-ring" viewBox="0 0 120 120">
+                        <circle cx="60" cy="60" r="52" class="ring-track"/>
+                        <circle cx="60" cy="60" r="52" class="ring-bar" id="ring-bar"/>
+                    </svg>
+                    <span class="ring-pct" id="ring-pct">0%</span>
+                </div>
+                <div class="sidebar-stats">
+                    <div class="sb-stat"><strong id="sb-done">0</strong><small>Done</small></div>
+                    <div class="sb-stat"><strong id="sb-quiz">0</strong><small>Quizzes</small></div>
+                    <div class="sb-stat"><strong id="sb-avg">0%</strong><small>Score</small></div>
+                </div>
+            </div>
+            <nav id="sidebar-nav"></nav>
+        </aside>
+
+        <!-- Overlay for mobile sidebar -->
+        <div id="sidebar-overlay"></div>
+
+        <!-- Content -->
+        <main id="main">
+            <div id="view-dashboard"></div>
+            <div id="view-topic" class="view-hidden"></div>
+            <div id="view-quiz" class="view-hidden"></div>
+        </main>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Confetti Canvas -->
+    <canvas id="confetti" class="confetti-canvas"></canvas>
+
+    <!-- SVG Gradient for Ring -->
+    <svg style="position:absolute;width:0;height:0">
+        <defs>
+            <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#6366f1"/>
+                <stop offset="100%" stop-color="#c471ed"/>
+            </linearGradient>
+        </defs>
+    </svg>
+    <script src="learn-python-data.js"></script>
+    <script src="learn-python.js"></script>
+</body>
+</html>
