@@ -46,13 +46,18 @@
         @media print{body *{display:none!important}body::after{content:"Protected Content — Soseeks Academy | soseeks.com";display:block;font-size:2rem;text-align:center;padding:100px;color:#333}}
 
         /* SEO Preview Section */
-        .seo-preview{max-width:800px;margin:40px auto 0;padding:0 20px;text-align:center}
+        .seo-preview{max-width:800px;margin:40px auto 0;padding:0;text-align:center;width:100%;position:relative;z-index:1;flex-shrink:0}
         .seo-preview h2{font-family:'Orbitron',sans-serif;font-size:1.1rem;color:rgba(255,255,255,0.7);margin-bottom:24px;font-weight:600}
         .seo-modules{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;text-align:left}
         .seo-mod{padding:14px 16px;background:rgba(255,255,255,0.02);border:1px solid rgba(99,102,241,0.08);border-radius:10px;font-size:0.8rem;color:rgba(255,255,255,0.4)}
         .seo-mod strong{color:rgba(255,255,255,0.6);display:block;margin-bottom:4px;font-size:0.75rem}
-        .seo-cta{margin-top:32px;font-size:0.8rem;color:rgba(255,255,255,0.3)}
+        .seo-cta{margin-top:32px;font-size:0.8rem;color:rgba(255,255,255,0.3);padding-bottom:20px}
         .seo-cta a{color:rgba(99,102,241,0.6)}
+        @media(max-width:480px){
+            .seo-preview h2{font-size:0.9rem}
+            .seo-modules{grid-template-columns:1fr;gap:8px}
+            .seo-mod{padding:10px 12px;font-size:0.75rem}
+        }
     </style>
 </head>
 <body>
