@@ -572,7 +572,8 @@ class PythonAcademy {
         const bools = ['True', 'False', 'None'];
 
         const tokens = [];
-        const hold = (html) => { tokens.push(html); return `\x01${tokens.length - 1}\x01`; };
+        const PH = '\u200B\u200B';
+        const hold = (html) => { tokens.push(html); return `${PH}${tokens.length - 1}${PH}`; };
 
         let r = line;
 
@@ -586,7 +587,7 @@ class PythonAcademy {
         keywords.forEach(kw => { r = r.replace(new RegExp(`\\b(${kw})\\b`, 'g'), m => hold(`<span class="syn-kw">${m}</span>`)); });
         r = r.replace(/\b(\d+\.?\d*)\b/g, m => hold(`<span class="syn-num">${m}</span>`));
 
-        tokens.forEach((html, i) => { r = r.replace(`\x01${i}\x01`, html); });
+        tokens.forEach((html, i) => { r = r.replace(`${PH}${i}${PH}`, html); });
         return r;
     }
 
