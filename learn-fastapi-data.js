@@ -315,7 +315,7 @@ const MODULES = [
         code: [
             {
                 title: 'BaseModel with Field Constraints',
-                code: 'from fastapi import FastAPI\nfrom pydantic import BaseModel, Field\n\napp = FastAPI()\n\nclass Product(BaseModel):\n    name: str = Field(min_length=1, max_length=120)\n    sku: str = Field(pattern=r"^[A-Z0-9-]+$")\n    price: float = Field(gt=0, le=1_000_000)\n    tags: list[str] = []\n\n@app.post("/products")\ndef create_product(p: Product):\n    return {"ok": True, "data": p.model_dump()}',
+                code: '# Pydantic ships with FastAPI (pip install fastapi)\nfrom fastapi import FastAPI\nfrom pydantic import BaseModel, Field\n\napp = FastAPI()\n\nclass Product(BaseModel):\n    name: str = Field(min_length=1, max_length=120)\n    sku: str = Field(pattern=r"^[A-Z0-9-]+$")\n    price: float = Field(gt=0, le=1_000_000)\n    tags: list[str] = []\n\n@app.post("/products")\ndef create_product(p: Product):\n    return {"ok": True, "data": p.model_dump()}',
                 output: '# POST JSON matching Product → 200\n# Negative price or bad sku → 422'
             },
             {
@@ -724,7 +724,7 @@ const MODULES = [
         code: [
             {
                 title: 'Engine + SessionLocal + Base',
-                code: 'from sqlalchemy import create_engine\nfrom sqlalchemy.orm import sessionmaker, DeclarativeBase\n\nclass Base(DeclarativeBase):\n    pass\n\nSQLALCHEMY_DATABASE_URL = "sqlite:///./soseeks.db"\nengine = create_engine(\n    SQLALCHEMY_DATABASE_URL,\n    connect_args={"check_same_thread": False},  # SQLite + FastAPI\n)\nSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)\n\n# Call once at startup:\n# Base.metadata.create_all(bind=engine)',
+                code: '# pip install sqlalchemy\nfrom sqlalchemy import create_engine\nfrom sqlalchemy.orm import sessionmaker, DeclarativeBase\n\nclass Base(DeclarativeBase):\n    pass\n\nSQLALCHEMY_DATABASE_URL = "sqlite:///./soseeks.db"\nengine = create_engine(\n    SQLALCHEMY_DATABASE_URL,\n    connect_args={"check_same_thread": False},  # SQLite + FastAPI\n)\nSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)\n\n# Call once at startup:\n# Base.metadata.create_all(bind=engine)',
                 output: '# Engine + session factory ready for models'
             },
             {
@@ -859,7 +859,7 @@ const MODULES = [
         code: [
             {
                 title: 'OAuth2PasswordBearer Dependency',
-                code: 'from typing import Annotated\nfrom fastapi import Depends, FastAPI, HTTPException, status\nfrom fastapi.security import OAuth2PasswordBearer\n\napp = FastAPI()\noauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")\n\nasync def get_current_user(token: Annotated[str, Depends(oauth2_scheme)]):\n    if token != "fake-access-token":\n        raise HTTPException(\n            status_code=status.HTTP_401_UNAUTHORIZED,\n            detail="Invalid authentication credentials",\n        )\n    return {"username": "learner", "sub": "user-1"}\n\n@app.get("/me")\nasync def read_me(user: Annotated[dict, Depends(get_current_user)]):\n    return user',
+                code: '# pip install python-jose passlib bcrypt python-multipart\nfrom typing import Annotated\nfrom fastapi import Depends, FastAPI, HTTPException, status\nfrom fastapi.security import OAuth2PasswordBearer\n\napp = FastAPI()\noauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")\n\nasync def get_current_user(token: Annotated[str, Depends(oauth2_scheme)]):\n    if token != "fake-access-token":\n        raise HTTPException(\n            status_code=status.HTTP_401_UNAUTHORIZED,\n            detail="Invalid authentication credentials",\n        )\n    return {"username": "learner", "sub": "user-1"}\n\n@app.get("/me")\nasync def read_me(user: Annotated[dict, Depends(get_current_user)]):\n    return user',
                 output: '# Swagger "Authorize" sends Bearer token\n# Wrong/missing token → 401'
             },
             {
@@ -1164,7 +1164,7 @@ const MODULES = [
         code: [
             {
                 title: 'UploadFile Save to Disk',
-                code: 'from pathlib import Path\nfrom fastapi import FastAPI, File, UploadFile\n\napp = FastAPI()\nUPLOAD_DIR = Path("uploads")\nUPLOAD_DIR.mkdir(exist_ok=True)\n\n@app.post("/upload")\nasync def upload(file: UploadFile = File(...)):\n    dest = UPLOAD_DIR / file.filename.replace("/", "_")\n    with dest.open("wb") as out:\n        while chunk := await file.read(1024 * 1024):\n            out.write(chunk)\n    return {"saved_as": dest.name, "content_type": file.content_type}',
+                code: '# pip install python-multipart\nfrom pathlib import Path\nfrom fastapi import FastAPI, File, UploadFile\n\napp = FastAPI()\nUPLOAD_DIR = Path("uploads")\nUPLOAD_DIR.mkdir(exist_ok=True)\n\n@app.post("/upload")\nasync def upload(file: UploadFile = File(...)):\n    dest = UPLOAD_DIR / file.filename.replace("/", "_")\n    with dest.open("wb") as out:\n        while chunk := await file.read(1024 * 1024):\n            out.write(chunk)\n    return {"saved_as": dest.name, "content_type": file.content_type}',
                 output: '# Streams 1 MiB chunks—good for larger files'
             },
             {
@@ -1252,7 +1252,7 @@ const MODULES = [
         code: [
             {
                 title: 'Basic TestClient',
-                code: 'from fastapi import FastAPI\nfrom fastapi.testclient import TestClient\n\napp = FastAPI()\n\n@app.get("/add")\ndef add(x: int, y: int):\n    return {"sum": x + y}\n\nclient = TestClient(app)\n\ndef test_add():\n    r = client.get("/add", params={"x": 2, "y": 3})\n    assert r.status_code == 200\n    assert r.json() == {"sum": 5}',
+                code: '# pip install httpx pytest\nfrom fastapi import FastAPI\nfrom fastapi.testclient import TestClient\n\napp = FastAPI()\n\n@app.get("/add")\ndef add(x: int, y: int):\n    return {"sum": x + y}\n\nclient = TestClient(app)\n\ndef test_add():\n    r = client.get("/add", params={"x": 2, "y": 3})\n    assert r.status_code == 200\n    assert r.json() == {"sum": 5}',
                 output: '# pytest discovers test_add'
             },
             {
