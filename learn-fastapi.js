@@ -569,8 +569,7 @@ class FastAPIAcademy {
         const bools = ['True', 'False', 'None'];
 
         const tokens = [];
-        const PH = '\u200B\u200B';
-        const hold = (html) => { tokens.push(html); return `${PH}${tokens.length - 1}${PH}`; };
+        const hold = (html) => { const i = tokens.length; tokens.push(html); return `\u00AB${i}\u00BB`; };
 
         let r = line;
 
@@ -584,7 +583,7 @@ class FastAPIAcademy {
         keywords.forEach(kw => { r = r.replace(new RegExp(`\\b(${kw})\\b`, 'g'), m => hold(`<span class="syn-kw">${m}</span>`)); });
         r = r.replace(/\b(\d+\.?\d*)\b/g, m => hold(`<span class="syn-num">${m}</span>`));
 
-        tokens.forEach((html, i) => { r = r.replace(`${PH}${i}${PH}`, html); });
+        tokens.forEach((html, i) => { r = r.replace(`\u00AB${i}\u00BB`, html); });
         return r;
     }
 
