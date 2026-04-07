@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastAPI Training Course — Learn FastAPI from Scratch | Soseeks Academy, Bhilai</title>
+    <meta name="description" content="Master FastAPI at Soseeks Academy, Bhilai. Interactive learning platform covering FastAPI Fundamentals, Pydantic, SQLAlchemy, Authentication, JWT, Middleware, WebSockets, Docker Deployment, and 120+ interview questions. Best FastAPI course in Bhilai, Raipur, Chhattisgarh.">
+    <meta name="keywords" content="learn FastAPI online, FastAPI course Bhilai, FastAPI training, FastAPI tutorial, Pydantic models, SQLAlchemy ORM, JWT authentication, FastAPI WebSocket, FastAPI Docker, FastAPI interview questions, Soseeks FastAPI, best FastAPI course India, FastAPI Raipur, Python backend">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.soseeks.com/learn-fastapi.html">
+    <meta name="author" content="Soseeks India Pvt Ltd">
+
+    <meta property="og:title" content="FastAPI Training — Interactive Learning Platform | Soseeks Academy">
+    <meta property="og:description" content="Master FastAPI from fundamentals to production deployment with animated examples, real-world analogies, and 120+ interview-ready quizzes. By Soseeks India, Bhilai.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.soseeks.com/learn-fastapi.html">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "FastAPI Training — Interactive Learning Platform",
+        "description": "Complete FastAPI course with 10 modules, 30 topics, 120+ interview quizzes. Covers fundamentals, Pydantic, SQLAlchemy, Authentication, JWT, Middleware, CORS, WebSockets, Background Tasks, Docker deployment with real-world analogies and animated code examples.",
+        "provider": { "@type": "Organization", "name": "Soseeks India Pvt Ltd", "url": "https://www.soseeks.com" },
+        "offers": { "@type": "Offer", "price": "69999", "priceCurrency": "INR", "availability": "https://schema.org/InStock" },
+        "educationalLevel": "Beginner to Advanced",
+        "teaches": ["FastAPI Fundamentals", "Pydantic Models", "SQLAlchemy ORM", "JWT Authentication", "Dependency Injection", "Middleware", "CORS", "WebSockets", "Background Tasks", "Docker Deployment"],
+        "numberOfCredits": "10 Modules, 30 Topics, 120+ Quizzes",
+        "availableLanguage": ["English", "Hindi"],
+        "locationCreated": { "@type": "Place", "name": "Bhilai, Chhattisgarh" }
+    }
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="learn-python.css">
+
+    <!-- Content Protection CSS -->
+    <style>
+        #app{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-touch-callout:none;overflow-x:hidden;max-width:100vw}
+        #app img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
+        #protection-wall{position:fixed;inset:0;z-index:99999;background:var(--bg,#030014);display:flex;align-items:center;justify-content:center;color:#ef4444;font-family:'Orbitron',sans-serif;font-size:1.2rem;text-align:center;padding:20px}
+        .watermark{position:fixed;bottom:10px;right:10px;font-size:0.6rem;color:rgba(99,102,241,0.08);font-family:'Orbitron',sans-serif;pointer-events:none;z-index:9998;letter-spacing:2px}
+        @media print{body *{display:none!important}body::after{content:"Protected Content — Soseeks Academy | soseeks.com";display:block;font-size:2rem;text-align:center;padding:100px;color:#333}}
+
+        /* SEO Preview Section */
+        .seo-preview{max-width:800px;margin:40px auto 0;padding:0;text-align:center;width:100%;position:relative;z-index:1;flex-shrink:0;display:none}
+        @media(max-width:768px){.seo-preview{display:block}}
+        .seo-preview h2{font-family:'Orbitron',sans-serif;font-size:1.1rem;color:rgba(255,255,255,0.7);margin-bottom:24px;font-weight:600}
+        .seo-modules{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;text-align:left}
+        .seo-mod{padding:14px 16px;background:rgba(255,255,255,0.02);border:1px solid rgba(99,102,241,0.08);border-radius:10px;font-size:0.8rem;color:rgba(255,255,255,0.4)}
+        .seo-mod strong{color:rgba(255,255,255,0.6);display:block;margin-bottom:4px;font-size:0.75rem}
+        .seo-cta{margin-top:32px;font-size:0.8rem;color:rgba(255,255,255,0.3);padding-bottom:20px}
+        .seo-cta a{color:rgba(99,102,241,0.6)}
+        @media(max-width:480px){
+            .seo-preview h2{font-size:0.9rem}
+            .seo-modules{grid-template-columns:1fr;gap:8px}
+            .seo-mod{padding:10px 12px;font-size:0.75rem}
+        }
+    </style>
+</head>
+<body>
+    <!-- ========== ACCESS GATE ========== -->
+    <div id="gate">
+        <div class="gate-particles"></div>
+        <div class="gate-card">
+            <div class="gate-glow"></div>
+            <div class="gate-logo">Soseeks</div>
+            <h1 class="gate-title">Fast<span>API</span></h1>
+            <p class="gate-desc">Enter your access code to unlock the learning platform</p>
+            <div class="gate-input-group">
+                <input type="password" id="gate-code" placeholder="Enter Access Code" autocomplete="off" spellcheck="false">
+                <button id="gate-btn" aria-label="Unlock">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+            </div>
+            <p id="gate-error" class="gate-error"></p>
+            <div class="gate-hint">Hint: Contact Soseeks to get your access code</div>
+        </div>
+
+        <!-- SEO-visible preview -->
+        <div class="seo-preview">
+            <h2>What You'll Learn — 10 Modules, 30 Topics, 120+ Quizzes</h2>
+            <div class="seo-modules">
+                <div class="seo-mod"><strong>Module 1</strong>FastAPI Fundamentals — What is FastAPI, First App, Path Operations</div>
+                <div class="seo-mod"><strong>Module 2</strong>Path & Query Parameters — Path Params, Query Params, Validation</div>
+                <div class="seo-mod"><strong>Module 3</strong>Request Body & Pydantic — Models, Nested Models, Field Validators</div>
+                <div class="seo-mod"><strong>Module 4</strong>Response Handling — Response Models, Status Codes, Custom Responses</div>
+                <div class="seo-mod"><strong>Module 5</strong>Dependency Injection — Depends(), Sub-dependencies, Yield</div>
+                <div class="seo-mod"><strong>Module 6</strong>Database with SQLAlchemy — ORM Setup, CRUD, Relationships</div>
+                <div class="seo-mod"><strong>Module 7</strong>Authentication & Security — OAuth2, JWT Tokens, Role-Based Access</div>
+                <div class="seo-mod"><strong>Module 8</strong>Middleware & CORS — Custom Middleware, CORS, Exception Handlers</div>
+                <div class="seo-mod"><strong>Module 9</strong>Background Tasks & WebSockets — Async Tasks, File Upload, WebSocket</div>
+                <div class="seo-mod"><strong>Module 10</strong>Testing & Deployment — TestClient, pytest, Docker, Production</div>
+            </div>
+            <p class="seo-cta">Enroll in Python Full Stack Training at <a href="index.html">Soseeks India</a> to get access. Call +91 8500518050</p>
+        </div>
+    </div>
+
+    <!-- ========== MAIN APP ========== -->
+    <div id="app" class="app-hidden">
+        <header id="topbar">
+            <div class="topbar-left">
+                <button id="sidebar-toggle" class="topbar-hamburger" aria-label="Toggle sidebar">
+                    <span></span><span></span><span></span>
+                </button>
+                <a href="index.html" class="topbar-logo">Soseeks</a>
+                <span class="topbar-sep">|</span>
+                <span class="topbar-label">Soseeks Academy — FastAPI</span>
+            </div>
+            <div class="topbar-progress">
+                <div class="topbar-progress-track">
+                    <div class="topbar-progress-fill" id="topbar-progress"></div>
+                </div>
+                <span id="topbar-progress-text" class="topbar-progress-label">0%</span>
+            </div>
+            <div class="topbar-right">
+                <button id="btn-home" class="topbar-icon-btn" title="Dashboard">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                </button>
+                <button id="btn-lock" class="topbar-icon-btn" title="Lock Platform">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                </button>
+            </div>
+        </header>
+
+        <aside id="sidebar" class="sidebar-open">
+            <div class="sidebar-head">
+                <div class="sidebar-ring-wrap">
+                    <svg class="sidebar-ring" viewBox="0 0 120 120">
+                        <circle cx="60" cy="60" r="52" class="ring-track"/>
+                        <circle cx="60" cy="60" r="52" class="ring-bar" id="ring-bar"/>
+                    </svg>
+                    <span class="ring-pct" id="ring-pct">0%</span>
+                </div>
+                <div class="sidebar-stats">
+                    <div class="sb-stat"><strong id="sb-done">0</strong><small>Done</small></div>
+                    <div class="sb-stat"><strong id="sb-quiz">0</strong><small>Quizzes</small></div>
+                    <div class="sb-stat"><strong id="sb-avg">0%</strong><small>Score</small></div>
+                </div>
+            </div>
+            <nav id="sidebar-nav"></nav>
+        </aside>
+
+        <div id="sidebar-overlay"></div>
+
+        <main id="main">
+            <div id="view-dashboard"></div>
+            <div id="view-topic" class="view-hidden"></div>
+            <div id="view-quiz" class="view-hidden"></div>
+        </main>
+    </div>
+
+    <!-- Protection Wall -->
+    <div id="protection-wall" style="display:none">
+        <div>
+            <p>⚠️ Developer Tools Detected</p>
+            <p style="font-size:0.8rem;color:#94a3b8;margin-top:12px">Soseeks Academy content is protected. Please close Developer Tools to continue.</p>
+        </div>
+    </div>
+
+    <!-- Watermark -->
+    <div class="watermark" id="watermark"></div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Confetti Canvas -->
+    <canvas id="confetti" class="confetti-canvas"></canvas>
+
+    <!-- SVG Gradient for Ring -->
+    <svg style="position:absolute;width:0;height:0">
+        <defs>
+            <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#6366f1"/>
+                <stop offset="100%" stop-color="#c471ed"/>
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <script src="learn-fastapi-data.js"></script>
+    <script src="learn-fastapi.js"></script>
+
+    <!-- Content Protection Script -->
+    <script>
+    (function(){
+        'use strict';
+        document.addEventListener('contextmenu', function(e){ e.preventDefault(); });
+        document.addEventListener('selectstart', function(e){
+            if(document.getElementById('gate').classList.contains('gate-unlocked')) e.preventDefault();
+        });
+        document.addEventListener('dragstart', function(e){ e.preventDefault(); });
+        document.addEventListener('keydown', function(e){
+            if(e.key === 'F12'){ e.preventDefault(); return false; }
+            if(e.ctrlKey && e.shiftKey && e.key === 'I'){ e.preventDefault(); return false; }
+            if(e.ctrlKey && e.shiftKey && e.key === 'J'){ e.preventDefault(); return false; }
+            if(e.ctrlKey && e.shiftKey && e.key === 'C'){ e.preventDefault(); return false; }
+            if(e.ctrlKey && e.key === 'u'){ e.preventDefault(); return false; }
+            if(e.ctrlKey && e.key === 's'){ e.preventDefault(); return false; }
+            if(e.ctrlKey && e.key === 'c' && document.getElementById('gate').classList.contains('gate-unlocked')){ e.preventDefault(); return false; }
+            if(e.ctrlKey && e.key === 'a' && document.getElementById('gate').classList.contains('gate-unlocked')){ e.preventDefault(); return false; }
+            if(e.ctrlKey && e.key === 'p'){ e.preventDefault(); return false; }
+            if(e.metaKey && e.key === 'u'){ e.preventDefault(); return false; }
+            if(e.metaKey && e.key === 's'){ e.preventDefault(); return false; }
+            if(e.metaKey && e.key === 'p'){ e.preventDefault(); return false; }
+            if(e.metaKey && e.key === 'c' && document.getElementById('gate').classList.contains('gate-unlocked')){ e.preventDefault(); return false; }
+            if(e.metaKey && e.key === 'a' && document.getElementById('gate').classList.contains('gate-unlocked')){ e.preventDefault(); return false; }
+            if(e.key === 'PrintScreen'){ e.preventDefault(); document.body.style.filter = 'blur(20px)'; setTimeout(function(){ document.body.style.filter = ''; }, 1500); return false; }
+        });
+        var wall = document.getElementById('protection-wall');
+        var threshold = 160;
+        function checkDevTools(){
+            if (window.innerWidth < 1024) { wall.style.display = 'none'; return; }
+            var w = window.outerWidth - window.innerWidth > threshold;
+            var h = window.outerHeight - window.innerHeight > threshold;
+            if(w || h){ wall.style.display = 'flex'; } else { wall.style.display = 'none'; }
+        }
+        setInterval(checkDevTools, 1000);
+        window.addEventListener('resize', checkDevTools);
+        var noop = function(){};
+        try { Object.defineProperty(window, 'console', { get: function(){ return { log:noop, warn:noop, error:noop, info:noop, dir:noop, table:noop, trace:noop, assert:noop }; }, set: noop }); } catch(e){}
+        function updateWatermark(){ var wm = document.getElementById('watermark'); if(wm){ var d = new Date(); wm.textContent = 'SOSEEKS ACADEMY \u00B7 ' + d.toLocaleDateString() + ' ' + d.toLocaleTimeString(); } }
+        updateWatermark(); setInterval(updateWatermark, 30000);
+        document.addEventListener('visibilitychange', function(){ if(document.hidden){ document.body.style.filter = 'blur(10px)'; } else { setTimeout(function(){ document.body.style.filter = ''; }, 300); } });
+    })();
+    </script>
+</body>
+</html>
