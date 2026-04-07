@@ -46,7 +46,8 @@
         @media print{body *{display:none!important}body::after{content:"Protected Content — Soseeks Academy | soseeks.com";display:block;font-size:2rem;text-align:center;padding:100px;color:#333}}
 
         /* SEO Preview Section */
-        .seo-preview{max-width:800px;margin:40px auto 0;padding:0;text-align:center;width:100%;position:relative;z-index:1;flex-shrink:0}
+        .seo-preview{max-width:800px;margin:40px auto 0;padding:0;text-align:center;width:100%;position:relative;z-index:1;flex-shrink:0;display:none}
+        @media(max-width:768px){.seo-preview{display:block}}
         .seo-preview h2{font-family:'Orbitron',sans-serif;font-size:1.1rem;color:rgba(255,255,255,0.7);margin-bottom:24px;font-weight:600}
         .seo-modules{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;text-align:left}
         .seo-mod{padding:14px 16px;background:rgba(255,255,255,0.02);border:1px solid rgba(99,102,241,0.08);border-radius:10px;font-size:0.8rem;color:rgba(255,255,255,0.4)}
