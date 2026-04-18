@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat2Bill — GST Billing Software &amp; Chat POS for Kirana, Pharmacy &amp; Retail India | Soseeks</title>
+    <meta name="description" content="Chat2Bill is chat-based billing software and POS for Indian shops: GST invoices, inventory, dashboard. Built by Soseeks India. Kirana, pharmacy, hardware &amp; more. From ₹399/mo, 14-day free trial at chat2bill.com.">
+    <meta name="keywords" content="Chat2Bill, billing software India, GST billing software, POS software India, kirana store billing, pharmacy billing software, retail POS, chat POS, Soseeks, Chhattisgarh, Bhilai">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://soseeks.com/chat2bill.html">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://soseeks.com/chat2bill.html">
+    <meta property="og:title" content="Chat2Bill — Chat-Based POS &amp; GST Billing | Soseeks India">
+    <meta property="og:description" content="Turn natural typing into GST-ready invoices. Billing software for kirana, pharmacy &amp; retail — by Soseeks India.">
+    <meta property="og:site_name" content="Soseeks India">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Chat2Bill — GST Billing &amp; POS | Soseeks">
+    <meta name="twitter:description" content="Chat-based POS for Indian shops. GST invoices, inventory, dashboard. Try free at chat2bill.com.">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Chat2Bill",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web, Android",
+        "description": "Chat-based POS and GST billing software for retail shops, kirana stores, pharmacies, and small businesses in India. Natural-language billing, inventory management, and sales dashboard.",
+        "url": "https://www.chat2bill.com/",
+        "offers": {
+            "@type": "Offer",
+            "price": "399",
+            "priceCurrency": "INR",
+            "priceValidUntil": "2027-12-31",
+            "description": "Monthly plan from ₹399; 14-day free trial available on chat2bill.com"
+        },
+        "provider": {
+            "@type": "Organization",
+            "name": "Soseeks India Pvt Ltd",
+            "url": "https://soseeks.com",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Bhilai",
+                "addressRegion": "Chhattisgarh",
+                "addressCountry": "IN"
+            }
+        },
+        "featureList": "Chat billing, GST invoices CGST SGST, HSN codes, inventory tracking, low stock alerts, sales dashboard, thermal printer support, Android app"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is Chat2Bill?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Chat2Bill is billing and POS software from Soseeks India where shop staff type what the customer buys in plain language. The app builds GST-ready invoices, updates stock, and shows sales on a dashboard — ideal for kirana, pharmacy, electrical, and hardware stores."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Who builds Chat2Bill?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Chat2Bill is developed and operated by Soseeks India Pvt Ltd, a technology company based in Bhilai, Chhattisgarh, India."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Where can I sign up or try Chat2Bill?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Visit the official product website at https://www.chat2bill.com/ for a 14-day free trial, pricing, features, and Android app download."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .c2b-page { padding-top: 100px; padding-bottom: 80px; min-height: 100vh; background: var(--bg-dark); }
+        .c2b-wrap { max-width: 820px; margin: 0 auto; padding: 0 20px; }
+        .c2b-back { display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); font-size: 0.9rem; text-decoration: none; margin-bottom: 32px; transition: color 0.2s; }
+        .c2b-back:hover { color: var(--primary-light); }
+        .c2b-hero {
+            text-align: center;
+            padding: 40px 28px 48px;
+            border-radius: var(--radius);
+            border: 1px solid rgba(93, 95, 239, 0.25);
+            background: linear-gradient(165deg, rgba(93, 95, 239, 0.12) 0%, rgba(59, 130, 246, 0.06) 50%, var(--bg-card) 100%);
+            margin-bottom: 40px;
+        }
+        .c2b-hero .c2b-brand-lockup {
+            max-width: min(260px, 92%);
+            margin: 0 auto 22px;
+            display: block;
+        }
+        .c2b-hero .c2b-brand-lockup img {
+            width: 100%;
+            height: auto;
+            max-height: 44px;
+            object-fit: contain;
+            display: block;
+            filter: drop-shadow(0 6px 24px rgba(93, 95, 239, 0.25));
+        }
+        .c2b-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #5D5FEF;
+            margin-bottom: 16px;
+        }
+        .c2b-hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        .c2b-hero .lead {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.75;
+            max-width: 560px;
+            margin: 0 auto 28px;
+        }
+        .c2b-cta-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; align-items: center; }
+        .c2b-btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            color: #fff;
+            background: linear-gradient(135deg, #5D5FEF 0%, #3B82F6 100%);
+            box-shadow: 0 8px 32px rgba(93, 95, 239, 0.35);
+            border: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .c2b-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(59, 130, 246, 0.4); color: #fff; }
+        .c2b-btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            padding: 14px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            color: var(--text);
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.03);
+            transition: border-color 0.2s, background 0.2s;
+        }
+        .c2b-btn-ghost:hover { border-color: rgba(93, 95, 239, 0.45); background: rgba(93, 95, 239, 0.08); color: var(--text); }
+        .c2b-section { margin-bottom: 40px; }
+        .c2b-section h2 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            margin-bottom: 14px;
+            color: var(--text);
+        }
+        .c2b-section h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text);
+            margin: 22px 0 10px;
+        }
+        .c2b-section p, .c2b-section li { color: var(--text-muted); line-height: 1.8; margin-bottom: 12px; font-size: 0.95rem; }
+        .c2b-section ul.c2b-list { padding-left: 1.25rem; margin: 0 0 8px; }
+        .c2b-section ul.c2b-list li { margin-bottom: 8px; }
+        .c2b-features {
+            display: grid;
+            gap: 12px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .c2b-features li {
+            position: relative;
+            padding: 14px 16px 14px 44px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+        }
+        .c2b-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: rgba(93, 95, 239, 0.2);
+            color: #818cf8;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+        .c2b-faq details {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            margin-bottom: 10px;
+            padding: 0 16px;
+        }
+        .c2b-faq summary {
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text);
+            padding: 14px 0;
+            list-style: none;
+        }
+        .c2b-faq summary::-webkit-details-marker { display: none; }
+        .c2b-faq details[open] summary { border-bottom: 1px solid var(--border); margin-bottom: 0; }
+        .c2b-faq details p { padding: 12px 0 16px; margin: 0; font-size: 0.92rem; }
+        .c2b-footnote { font-size: 0.85rem; color: var(--text-dim); text-align: center; margin-top: 48px; }
+        .c2b-footnote a { color: var(--primary-light); }
+    </style>
+</head>
+<body>
+    <nav id="navbar" style="background:rgba(3,0,20,0.92);backdrop-filter:blur(12px);">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Soseeks</a>
+            <ul class="nav-links">
+                <li><a href="index.html#products">Products</a></li>
+                <li><a href="index.html#courses">Training</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="c2b-page">
+        <div class="c2b-wrap">
+            <a href="index.html#products" class="c2b-back">← Back to Soseeks products</a>
+
+            <header class="c2b-hero">
+                <span class="c2b-badge">Live product · by Soseeks India</span>
+                <span class="c2b-brand-lockup">
+                    <img src="assets/chat2bill-logo.svg" width="260" height="50" alt="Chat2Bill — GST billing and POS software logo">
+                </span>
+                <h1>Chat2Bill: chat-based POS &amp; GST billing software for Indian retail</h1>
+                <p class="lead">
+                    <strong style="color:var(--text)">Chat2Bill</strong> turns natural typing into <strong style="color:var(--text)">GST-ready invoices</strong>. It is a full <strong style="color:var(--text)">billing and POS solution</strong> for <strong style="color:var(--text)">kirana stores, pharmacies, electrical &amp; hardware shops</strong>, and other local retailers — with inventory, low-stock alerts, and a live sales dashboard. Built in India by <a href="index.html" style="color:var(--primary-light)">Soseeks India Pvt Ltd</a> (Bhilai, Chhattisgarh). Staff use simple chat-style entry; no noisy voice UI — it works on everyday Android phones and desktops.
+                </p>
+                <div class="c2b-cta-row">
+                    <a href="https://www.chat2bill.com/" class="c2b-btn-primary" target="_blank" rel="noopener noreferrer">
+                        Open Chat2Bill — chat2bill.com
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                    </a>
+                    <a href="https://www.chat2bill.com/" class="c2b-btn-ghost" target="_blank" rel="noopener noreferrer">14-day free trial</a>
+                </div>
+            </header>
+
+            <article class="c2b-section">
+                <h2>What is Chat2Bill?</h2>
+                <p>
+                    Chat2Bill is <strong style="color:var(--text)">retail billing software</strong> and a <strong style="color:var(--text)">point-of-sale (POS) system</strong> designed for Indian businesses. Instead of tapping through long product menus, users describe the sale in text — for example weights and item names — and the software matches products, applies <abbr title="Goods and Services Tax">GST</abbr> (CGST/SGST), and produces a professional tax invoice. Stock levels update automatically so owners can trust inventory between physical counts.
+                </p>
+                <p>
+                    The product is aimed at <strong style="color:var(--text)">high-volume, low-margin shops</strong> where speed and clarity matter: general stores, medical stores, mobile accessory counters, stationery, and similar formats across metros and smaller cities.
+                </p>
+            </article>
+
+            <section class="c2b-section">
+                <h2>Who is Chat2Bill for?</h2>
+                <ul class="c2b-list">
+                    <li><strong style="color:var(--text)">Kirana &amp; general stores</strong> — fast billing with HSN-aware lines where applicable.</li>
+                    <li><strong style="color:var(--text)">Pharmacy &amp; medical shops</strong> — structured lines, batch-oriented workflows where you configure them on the main product.</li>
+                    <li><strong style="color:var(--text)">Electrical, hardware &amp; building-material counters</strong> — variable SKUs and rate cards supported through your catalogue setup.</li>
+                    <li><strong style="color:var(--text)">Owners who want a dashboard</strong> — today’s sales, weekly trends, top movers, and low-stock signals in one place.</li>
+                </ul>
+            </section>
+
+            <section class="c2b-section">
+                <h2>Why we built it (Soseeks)</h2>
+                <p>
+                    Many small shops still juggle registers, calculators, and generic apps that are not built for <strong style="color:var(--text)">Indian GST practice</strong> or <strong style="color:var(--text)">inventory discipline</strong>. Soseeks builds Chat2Bill so billing feels as familiar as messaging, while the back end enforces tax lines, stock movement, and printable invoices — including support for <strong style="color:var(--text)">thermal printers</strong> where you use them in-store.
+                </p>
+            </section>
+
+            <section class="c2b-section">
+                <h2>Key features (summary)</h2>
+                <ul class="c2b-features">
+                    <li><strong style="color:var(--text)">Chat billing</strong> — natural text (e.g. “2 kg sugar, 1 Maggi pack”) builds the cart and invoice.</li>
+                    <li><strong style="color:var(--text)">GST-ready invoices</strong> — CGST/SGST, HSN-aware lines, print or share.</li>
+                    <li><strong style="color:var(--text)">Inventory &amp; alerts</strong> — stock moves with every sale; low-stock visibility.</li>
+                    <li><strong style="color:var(--text)">Dashboard</strong> — daily and weekly sales, top products, orders — desktop and mobile in sync.</li>
+                    <li><strong style="color:var(--text)">Built for India</strong> — works on budget Android, light payloads per bill, Android app on the official site.</li>
+                </ul>
+            </section>
+
+            <section class="c2b-section">
+                <h2>How billing works (high level)</h2>
+                <h3>1. Catalogue</h3>
+                <p>You maintain products with rates, tax slabs, and HSN codes — import from spreadsheet where supported on <a href="https://www.chat2bill.com/" target="_blank" rel="noopener noreferrer">chat2bill.com</a>.</p>
+                <h3>2. Sale</h3>
+                <p>Staff type the sale in the chat-style billing screen; the app resolves lines and taxes.</p>
+                <h3>3. Invoice &amp; stock</h3>
+                <p>A GST tax invoice is generated; inventory decrements; the dashboard reflects the transaction.</p>
+            </section>
+
+            <section class="c2b-section">
+                <h2>Pricing &amp; trial</h2>
+                <p>
+                    Public plans on the official site start around <strong style="color:var(--text)">₹399/month</strong> with a <strong style="color:var(--text)">14-day free trial</strong> (often without credit card upfront — confirm on <a href="https://www.chat2bill.com/" target="_blank" rel="noopener noreferrer">Chat2Bill pricing</a>). Longer commitments may reduce effective monthly cost.
+                </p>
+            </section>
+
+            <section class="c2b-section c2b-faq" aria-labelledby="c2b-faq-heading">
+                <h2 id="c2b-faq-heading">Frequently asked questions</h2>
+                <details>
+                    <summary>What is Chat2Bill?</summary>
+                    <p>Chat2Bill is POS and billing software from Soseeks India. You type what the customer buys; the app builds GST invoices and updates inventory. It is designed for Indian retail: kirana, pharmacy, hardware, and similar shops.</p>
+                </details>
+                <details>
+                    <summary>Is Chat2Bill the same as Soseeks Academy?</summary>
+                    <p>No. <a href="index.html#courses">Soseeks Academy</a> is training (Python, Gen AI, etc.). Chat2Bill is a separate commercial product — billing/POS software — with its own website and subscriptions.</p>
+                </details>
+                <details>
+                    <summary>Where do I register or download the app?</summary>
+                    <p>Everything current — signup, pricing, Android app, and documentation — lives on the official product site: <a href="https://www.chat2bill.com/" target="_blank" rel="noopener noreferrer">https://www.chat2bill.com/</a>.</p>
+                </details>
+                <details>
+                    <summary>Does Chat2Bill work without fast internet?</summary>
+                    <p>The product is engineered for small payloads per bill so it can run on modest connections; see the product site for offline or sync behaviour on the Android app.</p>
+                </details>
+            </section>
+
+            <p class="c2b-footnote">
+                <strong style="color:var(--text-muted)">Legal note:</strong> Chat2Bill is developed and operated under <a href="index.html">Soseeks India Pvt Ltd</a>.
+                Official product website: <a href="https://www.chat2bill.com/" target="_blank" rel="noopener noreferrer">https://www.chat2bill.com/</a>
+            </p>
+        </div>
+    </main>
+</body>
+</html>

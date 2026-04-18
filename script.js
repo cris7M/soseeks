@@ -55,14 +55,51 @@
         });
     });
 
-    // ── Smooth Scroll ──
+    // ── Smooth Scroll: align first visible block (not <section> top) so section padding doesn’t read as a “gap” under the nav
+    function inPageScrollTarget(section) {
+        if (!(section instanceof Element)) return section;
+        if (section.id === 'hero') {
+            return section.querySelector('.hero-content') || section;
+        }
+        if (section.id === 'startup') {
+            return section.querySelector('.startup-content') || section;
+        }
+        if (section.id === 'about') {
+            return section.querySelector('.about-content') || section;
+        }
+        const header = section.querySelector('.section-header');
+        if (header) return header;
+        return section;
+    }
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', (e) => {
+            const href = anchor.getAttribute('href');
+            if (!href || href === '#') return;
+            const section = document.querySelector(href);
+            if (!section) return;
             e.preventDefault();
-            const target = document.querySelector(anchor.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            const target = inPageScrollTarget(section);
+            const nav = document.getElementById('navbar');
+            const navH = nav ? Math.ceil(nav.getBoundingClientRect().height) : 0;
+            /* Space below fixed nav so titles aren’t tight to the bar */
+            const gap = 20;
+            /* .reveal-up is translated down until .visible; clearing transform shifts block up — scroll a bit lower first */
+            let revealShift = 0;
+            if (target.classList.contains('reveal-up') && !target.classList.contains('visible')) {
+                const raw = getComputedStyle(document.documentElement)
+                    .getPropertyValue('--reveal-translate-y')
+                    .trim();
+                const n = parseFloat(raw);
+                revealShift = Number.isFinite(n) ? n : 40;
             }
+            const top =
+                target.getBoundingClientRect().top +
+                window.pageYOffset -
+                navH -
+                gap -
+                revealShift;
+            window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
         });
     });
 

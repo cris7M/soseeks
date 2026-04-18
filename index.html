@@ -338,11 +338,13 @@
         <div class="nav-container">
             <a href="#hero" class="nav-logo">Soseeks</a>
             <ul class="nav-links">
+                <li><a href="#products" data-text="Products">Products</a></li>
                 <li><a href="#services" data-text="Services">Services</a></li>
                 <li><a href="#courses" data-text="Training">Training</a></li>
+                
                 <li><a href="#startup" data-text="Startups">Startups</a></li>
-                <li><a href="#products" data-text="Products">Products</a></li>
                 <li><a href="#about" data-text="About">About</a></li>
+                <li><a href="gen-ai-bootcamp.html" data-text="Bootcamp">Bootcamp</a></li>
                 <li><a href="#contact" class="nav-cta">Get In Touch</a></li>
             </ul>
             <button class="nav-toggle" aria-label="Toggle navigation menu">
@@ -354,11 +356,13 @@
     <!-- Mobile Menu -->
     <div id="mobile-menu">
         <ul>
+            <li><a href="#products">Products</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#courses">Training</a></li>
+            
             <li><a href="#startup">Startups</a></li>
-            <li><a href="#products">Products</a></li>
             <li><a href="#about">About</a></li>
+            <li><a href="gen-ai-bootcamp.html">Gen AI Bootcamp</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </div>
@@ -386,6 +390,14 @@
                     <span>View Courses</span>
                 </a>
             </div>
+            <p class="hero-bootcamp-strip reveal-up" style="--d:0.8s">
+                <span class="hero-bootcamp-label">College Gen AI Bootcamp · ₹299</span>
+                <span class="hero-bootcamp-links">
+                    <a href="gen-ai-bootcamp.html">Details</a>
+                    <span class="hero-bootcamp-sep" aria-hidden="true">·</span>
+                    <a href="access.html">Enter access code</a>
+                </span>
+            </p>
             <div class="hero-stats reveal-up" style="--d:0.9s">
                 <div class="stat">
                     <span class="stat-number" data-target="50">0</span>+
@@ -409,85 +421,72 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services">
+    <!-- Products Section -->
+    <section id="products">
         <div class="section-container">
             <div class="section-header reveal-up">
-                <span class="section-tag">What We Do</span>
-                <h2>Our <span class="gradient-text">Services</span></h2>
-                <p>End-to-end technology solutions crafted with precision and innovation</p>
+                <span class="section-tag">Innovation Lab</span>
+                <h2>Our <span class="gradient-text">Products</span></h2>
+                <p>Home-grown products built with passion, solving real-world problems with intelligent technology</p>
             </div>
-            <div class="services-grid">
-                <article class="service-card reveal-up" style="--d:0.1s">
-                    <div class="card-glow"></div>
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            <div class="products-grid">
+
+                <article class="product-card product-card--chat2bill reveal-up" style="--d:0.3s">
+                    <span class="product-status live">Live</span>
+                    <div class="product-hologram product-hologram--c2b">
+                        <img src="assets/chat2bill-icon.svg" width="48" height="48" alt="">
                     </div>
-                    <h3>Web Development</h3>
-                    <p>Scalable, high-performance web applications built with cutting-edge frameworks — React, Next.js, Node.js, Django, and more.</p>
-                    <div class="service-tags">
-                        <span>React</span><span>Next.js</span><span>Node.js</span><span>Django</span>
+                    <p class="product-eyebrow">POS &amp; GST billing</p>
+                    <h3>Chat2Bill</h3>
+                    <p>India’s smartest chat-based POS — type what customers buy, get GST invoices, inventory, and a live sales dashboard. Built for kirana, pharmacy &amp; retail.</p>
+                    <div class="product-card-actions">
+                        <a href="chat2bill.html" class="btn btn-outline btn-sm">Learn more</a>
+                        <a href="https://www.chat2bill.com/" class="btn btn-primary btn-sm product-btn-external" target="_blank" rel="noopener noreferrer">Visit chat2bill.com</a>
                     </div>
+                </article> 
+                <article class="product-card reveal-up" style="--d:0.1s">
+                    <div class="product-hologram">
+                        <svg viewBox="0 0 60 60" fill="none" stroke="url(#pg1)" stroke-width="1.5">
+                            <circle cx="30" cy="30" r="20"/>
+                            <path d="M18 30c0-8 5-14 12-14s12 6 12 14-5 14-12 14-12-6-12-14"/>
+                            <path d="M30 16v28M16 30h28"/>
+                            <circle cx="30" cy="30" r="4" fill="url(#pg1)"/>
+                            <defs><linearGradient id="pg1" x1="0" y1="0" x2="60" y2="60"><stop stop-color="#6366f1"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs>
+                        </svg>
+                    </div>
+                    <h3>AI-Powered Tech Social Network</h3>
+                    <p>A next-generation social platform for tech professionals — powered by AI for smart networking, content curation, and career growth.</p>
                 </article>
 
-                <article class="service-card reveal-up" style="--d:0.2s">
-                    <div class="card-glow"></div>
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                <article class="product-card reveal-up" style="--d:0.2s">
+                    <div class="product-hologram">
+                        <svg viewBox="0 0 60 60" fill="none" stroke="url(#pg2)" stroke-width="1.5">
+                            <circle cx="30" cy="30" r="22"/>
+                            <path d="M30 8v44M8 30h44"/>
+                            <path d="M14 14l32 32M46 14L14 46"/>
+                            <circle cx="30" cy="30" r="8" fill="none"/>
+                            <circle cx="30" cy="30" r="3" fill="url(#pg2)"/>
+                            <defs><linearGradient id="pg2" x1="0" y1="0" x2="60" y2="60"><stop stop-color="#8b5cf6"/><stop offset="1" stop-color="#ec4899"/></linearGradient></defs>
+                        </svg>
                     </div>
-                    <h3>Web Designing</h3>
-                    <p>Stunning UI/UX designs that captivate users. We craft pixel-perfect interfaces with modern design systems and brand-aligned aesthetics.</p>
-                    <div class="service-tags">
-                        <span>UI/UX</span><span>Figma</span><span>Responsive</span><span>3D</span>
-                    </div>
+                    <h3>Nerya Astro</h3>
+                    <p>An intelligent astrology platform blending ancient wisdom with modern AI — personalized predictions, chart analysis, and cosmic insights.</p>
                 </article>
 
-                <article class="service-card reveal-up" style="--d:0.3s">
-                    <div class="card-glow"></div>
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 18l6-6-6-6"/><path d="M8 6l-6 6 6 6"/></svg>
-                    </div>
-                    <h3>Software Development</h3>
-                    <p>Enterprise-grade software solutions — from cloud-native microservices to AI-powered automation systems tailored to your business.</p>
-                    <div class="service-tags">
-                        <span>Cloud</span><span>AI/ML</span><span>APIs</span><span>DevOps</span>
-                    </div>
-                </article>
+                
 
-                <article class="service-card reveal-up" style="--d:0.4s">
-                    <div class="card-glow"></div>
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+                <article class="product-card reveal-up" style="--d:0.4s">
+                    <div class="product-hologram">
+                        <svg viewBox="0 0 60 60" fill="none" stroke="url(#pg4)" stroke-width="1.5">
+                            <path d="M30 8l20 12v20L30 52 10 40V20z"/>
+                            <path d="M30 8v44M10 20l20 12 20-12"/>
+                            <circle cx="30" cy="32" r="6" fill="none"/>
+                            <path d="M27 32h6M30 29v6"/>
+                            <defs><linearGradient id="pg4" x1="0" y1="0" x2="60" y2="60"><stop stop-color="#f43f5e"/><stop offset="1" stop-color="#f59e0b"/></linearGradient></defs>
+                        </svg>
                     </div>
-                    <h3>App Development</h3>
-                    <p>Native and cross-platform mobile applications that deliver seamless experiences on iOS and Android with React Native and Flutter.</p>
-                    <div class="service-tags">
-                        <span>iOS</span><span>Android</span><span>React Native</span><span>Flutter</span>
-                    </div>
-                </article>
-
-                <article class="service-card reveal-up" style="--d:0.5s">
-                    <div class="card-glow"></div>
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
-                    </div>
-                    <h3>Software Training</h3>
-                    <p>Industry-aligned training programs led by experienced professionals. Master Python, Java, AI/ML, and Full Stack development with hands-on projects.</p>
-                    <div class="service-tags">
-                        <span>Python</span><span>Java</span><span>AI/ML</span><span>Full Stack</span>
-                    </div>
-                </article>
-
-                <article class="service-card reveal-up" style="--d:0.6s">
-                    <div class="card-glow"></div>
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
-                    </div>
-                    <h3>Digital Marketing</h3>
-                    <p>Strategic digital marketing — SEO optimization, Instagram growth campaigns, and AI-generated video ads that grab attention and drive real conversions.</p>
-                    <div class="service-tags">
-                        <span>SEO</span><span>Instagram</span><span>AI Video Ads</span>
-                    </div>
+                    <h3>Hospital Management System</h3>
+                    <p>Comprehensive HMS with patient records, appointment scheduling, billing, pharmacy management, and analytics dashboard.</p>
                 </article>
             </div>
         </div>
@@ -526,6 +525,7 @@
                     </ul>
                     <a href="gen-ai-training.html" class="btn btn-primary btn-sm">View Syllabus &amp; Enroll</a>
                     <a href="gen-ai-bootcamp.html" class="btn btn-outline btn-sm" style="margin-top:8px;display:inline-block;">₹299 College Bootcamp (4h)</a>
+                    <a href="access.html" class="course-access-link">Already paid? Enter your access code →</a>
                 </article>
 
                 <article class="course-card reveal-up" style="--d:0.2s">
@@ -697,70 +697,85 @@
         </div>
     </section>
 
-    <!-- Products Section -->
-    <section id="products">
+    <!-- Services Section -->
+    <section id="services">
         <div class="section-container">
             <div class="section-header reveal-up">
-                <span class="section-tag">Innovation Lab</span>
-                <h2>Our <span class="gradient-text">Products</span></h2>
-                <p>Home-grown products built with passion, solving real-world problems with intelligent technology</p>
+                <span class="section-tag">What We Do</span>
+                <h2>Our <span class="gradient-text">Services</span></h2>
+                <p>End-to-end technology solutions crafted with precision and innovation</p>
             </div>
-            <div class="products-grid">
-                <article class="product-card reveal-up" style="--d:0.1s">
-                    <div class="product-hologram">
-                        <svg viewBox="0 0 60 60" fill="none" stroke="url(#pg1)" stroke-width="1.5">
-                            <circle cx="30" cy="30" r="20"/>
-                            <path d="M18 30c0-8 5-14 12-14s12 6 12 14-5 14-12 14-12-6-12-14"/>
-                            <path d="M30 16v28M16 30h28"/>
-                            <circle cx="30" cy="30" r="4" fill="url(#pg1)"/>
-                            <defs><linearGradient id="pg1" x1="0" y1="0" x2="60" y2="60"><stop stop-color="#6366f1"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs>
-                        </svg>
+            <div class="services-grid">
+                <article class="service-card reveal-up" style="--d:0.1s">
+                    <div class="card-glow"></div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
                     </div>
-                    <h3>AI-Powered Tech Social Network</h3>
-                    <p>A next-generation social platform for tech professionals — powered by AI for smart networking, content curation, and career growth.</p>
+                    <h3>Web Development</h3>
+                    <p>Scalable, high-performance web applications built with cutting-edge frameworks — React, Next.js, Node.js, Django, and more.</p>
+                    <div class="service-tags">
+                        <span>React</span><span>Next.js</span><span>Node.js</span><span>Django</span>
+                    </div>
                 </article>
 
-                <article class="product-card reveal-up" style="--d:0.2s">
-                    <div class="product-hologram">
-                        <svg viewBox="0 0 60 60" fill="none" stroke="url(#pg2)" stroke-width="1.5">
-                            <circle cx="30" cy="30" r="22"/>
-                            <path d="M30 8v44M8 30h44"/>
-                            <path d="M14 14l32 32M46 14L14 46"/>
-                            <circle cx="30" cy="30" r="8" fill="none"/>
-                            <circle cx="30" cy="30" r="3" fill="url(#pg2)"/>
-                            <defs><linearGradient id="pg2" x1="0" y1="0" x2="60" y2="60"><stop stop-color="#8b5cf6"/><stop offset="1" stop-color="#ec4899"/></linearGradient></defs>
-                        </svg>
+                <article class="service-card reveal-up" style="--d:0.2s">
+                    <div class="card-glow"></div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
                     </div>
-                    <h3>Nerya Astro</h3>
-                    <p>An intelligent astrology platform blending ancient wisdom with modern AI — personalized predictions, chart analysis, and cosmic insights.</p>
+                    <h3>Web Designing</h3>
+                    <p>Stunning UI/UX designs that captivate users. We craft pixel-perfect interfaces with modern design systems and brand-aligned aesthetics.</p>
+                    <div class="service-tags">
+                        <span>UI/UX</span><span>Figma</span><span>Responsive</span><span>3D</span>
+                    </div>
                 </article>
 
-                <article class="product-card reveal-up" style="--d:0.3s">
-                    <div class="product-hologram">
-                        <svg viewBox="0 0 60 60" fill="none" stroke="url(#pg3)" stroke-width="1.5">
-                            <rect x="10" y="15" width="40" height="30" rx="3"/>
-                            <path d="M10 25h40"/>
-                            <rect x="15" y="30" width="12" height="10" rx="1"/>
-                            <path d="M33 32h12M33 36h8M33 40h10"/>
-                            <defs><linearGradient id="pg3" x1="0" y1="0" x2="60" y2="60"><stop stop-color="#10b981"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs>
-                        </svg>
+                <article class="service-card reveal-up" style="--d:0.3s">
+                    <div class="card-glow"></div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 18l6-6-6-6"/><path d="M8 6l-6 6 6 6"/></svg>
                     </div>
-                    <h3>Inventory Management System</h3>
-                    <p>Smart inventory tracking with real-time analytics, automated reordering, barcode integration, and multi-location warehouse support.</p>
+                    <h3>Software Development</h3>
+                    <p>Enterprise-grade software solutions — from cloud-native microservices to AI-powered automation systems tailored to your business.</p>
+                    <div class="service-tags">
+                        <span>Cloud</span><span>AI/ML</span><span>APIs</span><span>DevOps</span>
+                    </div>
                 </article>
 
-                <article class="product-card reveal-up" style="--d:0.4s">
-                    <div class="product-hologram">
-                        <svg viewBox="0 0 60 60" fill="none" stroke="url(#pg4)" stroke-width="1.5">
-                            <path d="M30 8l20 12v20L30 52 10 40V20z"/>
-                            <path d="M30 8v44M10 20l20 12 20-12"/>
-                            <circle cx="30" cy="32" r="6" fill="none"/>
-                            <path d="M27 32h6M30 29v6"/>
-                            <defs><linearGradient id="pg4" x1="0" y1="0" x2="60" y2="60"><stop stop-color="#f43f5e"/><stop offset="1" stop-color="#f59e0b"/></linearGradient></defs>
-                        </svg>
+                <article class="service-card reveal-up" style="--d:0.4s">
+                    <div class="card-glow"></div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
                     </div>
-                    <h3>Hospital Management System</h3>
-                    <p>Comprehensive HMS with patient records, appointment scheduling, billing, pharmacy management, and analytics dashboard.</p>
+                    <h3>App Development</h3>
+                    <p>Native and cross-platform mobile applications that deliver seamless experiences on iOS and Android with React Native and Flutter.</p>
+                    <div class="service-tags">
+                        <span>iOS</span><span>Android</span><span>React Native</span><span>Flutter</span>
+                    </div>
+                </article>
+
+                <article class="service-card reveal-up" style="--d:0.5s">
+                    <div class="card-glow"></div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+                    </div>
+                    <h3>Software Training</h3>
+                    <p>Industry-aligned training programs led by experienced professionals. Master Python, Java, AI/ML, and Full Stack development with hands-on projects.</p>
+                    <div class="service-tags">
+                        <span>Python</span><span>Java</span><span>AI/ML</span><span>Full Stack</span>
+                    </div>
+                </article>
+
+                <article class="service-card reveal-up" style="--d:0.6s">
+                    <div class="card-glow"></div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+                    </div>
+                    <h3>Digital Marketing</h3>
+                    <p>Strategic digital marketing — SEO optimization, Instagram growth campaigns, and AI-generated video ads that grab attention and drive real conversions.</p>
+                    <div class="service-tags">
+                        <span>SEO</span><span>Instagram</span><span>AI Video Ads</span>
+                    </div>
                 </article>
             </div>
         </div>
@@ -864,6 +879,7 @@
                             <option value="software-development">Software Development</option>
                             <option value="app-development">App Development</option>
                             <option value="gen-ai-training">Gen AI Full Stack Training</option>
+                            <option value="gen-ai-bootcamp-college">Gen AI College Bootcamp (₹299 / access code)</option>
                             <option value="python-training">Python Full Stack Training</option>
                             <option value="java-training">Java Training</option>
                             <option value="frontend-training">Frontend Training</option>
@@ -939,7 +955,7 @@
                 </details>
                 <details class="faq-item reveal-up" style="--d:0.35s">
                     <summary>What products has Soseeks India built?</summary>
-                    <p>We have built four products: an AI-Powered Tech Social Network for developers, Nerya Astro (an intelligent astrology platform), an Inventory Management System with real-time analytics, and a Hospital Management System (HMS) with comprehensive healthcare features.</p>
+                    <p>We have built four products: <strong>Chat2Bill</strong> (chat-based POS and GST billing for Indian retail), an AI-Powered Tech Social Network for developers, Nerya Astro (an intelligent astrology platform), and a Hospital Management System (HMS) with comprehensive healthcare features.</p>
                 </details>
                 <details class="faq-item reveal-up" style="--d:0.4s">
                     <summary>Is Soseeks the best software training institute near Raipur?</summary>
@@ -990,6 +1006,8 @@
                         <h4>Training</h4>
                         <ul>
                             <li><a href="#courses">Gen AI Full Stack</a></li>
+                            <li><a href="gen-ai-bootcamp.html">Gen AI College Bootcamp</a></li>
+                            <li><a href="access.html">Bootcamp access code</a></li>
                             <li><a href="#courses">Python Full Stack</a></li>
                             <li><a href="#courses">Java Training</a></li>
                             <li><a href="#courses">Frontend Development</a></li>
@@ -1001,6 +1019,7 @@
                         <ul>
                             <li><a href="#about">About Us</a></li>
                             <li><a href="#products">Our Products</a></li>
+                            <li><a href="chat2bill.html">Chat2Bill</a></li>
                             <li><a href="#startup">For Startups</a></li>
                             <li><a href="#contact">Contact</a></li>
                             <li><a href="#faq">FAQ</a></li>
