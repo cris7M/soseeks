@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gen AI Bootcamp — Live Material | Soseeks Academy</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <script>
+        if (localStorage.getItem('isAuthenticated') !== 'true') {
+            window.location.replace('access.html');
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="bootcamp-header.css">
+    <link rel="stylesheet" href="bootcamp-course.css">
+    <style>
+        .bc-inner { max-width: 960px; }
+        .bc-progress { height: 8px; border-radius: 99px; overflow: hidden; }
+    </style>
+</head>
+<body class="bc-body">
+    <header id="topbar">
+        <div class="topbar-left">
+            <a href="index.html" class="topbar-logo">Soseeks</a>
+            <span class="topbar-sep">|</span>
+            <span class="topbar-label">Gen AI Bootcamp</span>
+        </div>
+        <div class="topbar-center">
+            <span id="stepLabel" class="topbar-step-label">Step 1 / 8</span>
+        </div>
+        <div class="topbar-right">
+            <a href="gen-ai-bootcamp.html" class="topbar-link">Info</a>
+            <button type="button" class="bc-btn-signout" onclick="bootcampSignOut()">Sign out</button>
+        </div>
+    </header>
+
+    <main class="bc-main">
+        <div class="container bc-inner">
+
+            <div class="progress bc-progress mb-4 bg-dark border border-secondary border-opacity-50">
+                <div id="progressBar" class="progress-bar" role="progressbar" style="width: 12.5%;" aria-valuenow="1" aria-valuemin="1" aria-valuemax="8"></div>
+            </div>
+
+            <!-- Step 1 -->
+            <section class="bootcamp-step card bc-card text-light mb-4" id="step-welcome">
+                <div class="card-body p-4 p-md-5">
+                    <h1 class="h3 mb-2"><span class="bc-hl">Section 1</span> — What you build (concrete)</h1>
+                    <p class="text-secondary mb-4">By the end you run <strong class="text-white">two apps + one API</strong>: a <strong class="text-white">FastAPI</strong> backend that builds a vector index from your PDF (embeddings run <strong class="text-white">locally</strong> with a small free model), a <strong class="text-white">React</strong> frontend to <strong class="text-white">upload</strong> and <strong class="text-white">chat</strong>, and <strong class="text-white"><a href="https://groq.com/" class="link-info" target="_blank" rel="noopener">Groq</a></strong> for the <strong class="text-white">LLM answers</strong> — fast Llama / Mixtral-class models with a <strong class="text-white">free Groq API key</strong> (you create one account, no credit card for the free tier).</p>
+
+                    <h2 class="h6 text-uppercase text-muted mb-2">Exact folder layout (create this)</h2>
+                    <div class="bc-tree">rag-chat-bootcamp/
+├── backend/
+│   ├── main.py              ← FastAPI + RAG logic
+│   └── data/raw/            ← PDFs saved here (auto-created by code)
+└── frontend/
+    ├── package.json
+    └── src/
+        └── App.js            ← upload + chat UI</div>
+
+                    <h2 class="h6 text-uppercase text-muted mb-2 mt-4">URLs you must see working</h2>
+                    <div class="bc-table-wrap">
+                        <table class="bc-table text-secondary">
+                            <thead><tr><th>URL</th><th>What you should see</th></tr></thead>
+                            <tbody>
+                                <tr><td><code class="text-info">http://127.0.0.1:8000/docs</code></td><td>Swagger UI with <code>POST /upload</code>, <code>POST /chat</code>, <code>GET /health</code></td></tr>
+                                <tr><td><code class="text-info">http://127.0.0.1:8000/health</code></td><td>JSON with <code>status</code>, <code>has_index</code>, Groq chat model id, and local embedding model name</td></tr>
+                                <tr><td><code class="text-info">http://localhost:3000</code></td><td>React app — your upload + chat screen</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="bc-callout">
+                        <strong class="text-white">Order of operations:</strong> (1) Create a <strong class="text-white">Groq</strong> account and set <code>GROQ_API_KEY</code> (Section 3). (2) Terminal A: activate venv, run <code>uvicorn</code> in <code>backend</code>. (3) Terminal B: <code>npm start</code> in <code>frontend</code>. (4) Browser: upload PDF → wait for “indexed” → ask a question from that PDF.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 2 -->
+            <section class="bootcamp-step card bc-card text-light mb-4 d-none">
+                <div class="card-body p-4 p-md-5">
+                    <h2 class="h4 mb-3"><span class="bc-hl">Section 2</span> — Every piece explained (not abstract)</h2>
+
+                    <div class="bc-table-wrap mb-4">
+                        <table class="bc-table text-secondary">
+                            <thead><tr><th>Piece</th><th>What it does in YOUR project</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong class="text-white">React</strong></td><td>Renders buttons. Sends the PDF as <code>multipart/form-data</code> to <code>/upload</code>. Sends your question as JSON to <code>/chat</code>. Shows <code>response.data.answer</code> on screen.</td></tr>
+                                <tr><td><strong class="text-white">FastAPI</strong></td><td>Python web server. <code>/upload</code> reads bytes, extracts text, splits into chunks, builds FAISS with <strong class="text-white">local Hugging Face embeddings</strong> (no key). <code>/chat</code> searches FAISS, builds a prompt, calls <strong class="text-white">Groq</strong> for the LLM reply.</td></tr>
+                                <tr><td><strong class="text-white">FAISS</strong></td><td>Library that stores <em>embedding vectors</em> (lists of floats) and finds nearest neighbours for your question’s embedding. That is your <strong>semantic search database</strong> for this bootcamp.</td></tr>
+                                <tr><td><strong class="text-white">Embeddings</strong></td><td><code>sentence-transformers/all-MiniLM-L6-v2</code> runs on <strong class="text-white">your laptop</strong> (downloads once). It turns each chunk into a vector so FAISS can retrieve similar text — <strong class="text-white">no embedding API bill</strong>.</td></tr>
+                                <tr><td><strong class="text-white">Gen AI (LLM)</strong></td><td>Default on Groq: <code>llama-3.1-8b-instant</code> (see <a href="https://console.groq.com/docs/models" class="link-info" target="_blank" rel="noopener">Supported Models</a>). Same API key, other ids like <code>llama-3.3-70b-versatile</code> or <code>openai/gpt-oss-20b</code> if your account can access them. With RAG, answers stay tied to your PDF. Change via env <code>GROQ_MODEL</code>.</td></tr>
+                                <tr><td><strong class="text-white">SQLite (optional)</strong></td><td>Not required for the core demo. Use it later to store rows like <code>filename, uploaded_at</code> while FAISS still holds vectors — two layers: SQL for metadata, FAISS for meaning.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p class="text-secondary mb-2"><strong class="text-white">Tokens (real numbers):</strong> A model does not read “words” — it reads <strong class="text-white">tokens</strong> (short pieces of text). A common English thumb rule is <strong class="text-white">about 100 tokens for every 75 words</strong> — that is the “≈ ¾ of a word per token” idea: <em>same paragraph → token count a bit higher than word count.</em></p>
+                    <ul class="text-secondary small ps-3 mb-2">
+                        <li class="mb-1"><strong class="text-white">Example 1 — simple sentence (~11 words):</strong> <em>“The college lab runs Python and FastAPI every week.”</em> → often about <strong class="text-white">12–14 tokens</strong> (many small words = roughly one token each).</li>
+                        <li class="mb-1"><strong class="text-white">Example 2 — one long word splits:</strong> <em>“Counterintuitive”</em> → often <strong class="text-white">3–5 tokens</strong> (e.g. pieces like <code>Counter</code>, <code>int</code>, <code>uitive</code>) — here one “word” uses several tokens.</li>
+                        <li class="mb-1"><strong class="text-white">Example 3 — the ¾ rule in bulk:</strong> a <strong class="text-white">75-word</strong> paragraph is often near <strong class="text-white">100 tokens</strong>; a <strong class="text-white">150-word</strong> page section → often <strong class="text-white">~200 tokens</strong> (order of magnitude).</li>
+                    </ul>
+                    <p class="text-secondary small mb-0">Your bootcamp splitter uses <strong class="text-white">characters</strong> (e.g. 900 characters per chunk) for simplicity — that is usually <strong class="text-white">~200–250 tokens</strong>. Production RAG often limits by <em>token</em> count so chunk size stays predictable for the LLM context window.</p>
+
+                    <p class="text-secondary mb-0"><strong class="text-white">Why two POST routes?</strong> <code>/upload</code> is slow (disk + PDF parse + embed many chunks). <code>/chat</code> is faster (one embed for the question + small vector search + one LLM call). Splitting keeps the UI simple: “index first, then chat.”</p>
+                </div>
+            </section>
+
+            <!-- Step 3 -->
+            <section class="bootcamp-step card bc-card text-light mb-4 d-none">
+                <div class="card-body p-4 p-md-5">
+                    <h2 class="h4 mb-3"><span class="bc-hl">Section 3</span> — Install &amp; run (copy / paste)</h2>
+                    <p class="text-secondary mb-3">Create a <strong class="text-white">free Groq API key</strong> first (steps below — <strong class="text-white">no credit card</strong> needed to sign up and generate a key for normal class practice). Then install Python packages. After <strong class="text-white">pip install</strong>, run the verify commands. First PDF upload may be slow while <code>sentence-transformers</code> downloads the small embedding model.</p>
+
+                    <div class="accordion bc-accordion accordion-flush" id="setupAccordion">
+                        <div class="accordion-item bg-transparent border border-secondary border-opacity-50 rounded mb-2 overflow-hidden">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button bg-dark text-light" type="button" data-bs-toggle="collapse" data-bs-target="#groqSetup" aria-expanded="true">Groq — free API key (click-by-click) — do this first</button>
+                            </h3>
+                            <div id="groqSetup" class="accordion-collapse collapse show" data-bs-parent="#setupAccordion">
+                                <div class="accordion-body text-secondary">
+                                    <div class="bc-callout mb-3">
+                                        <strong class="text-white">Free for students in this bootcamp:</strong> Groq gives developers <strong class="text-white">free API access</strong> with <strong class="text-white">rate limits</strong> (requests/tokens per minute), not “pay per click” from your bank. You <strong class="text-white">do not enter card details</strong> just to create an account and an API key. If you later turn on paid billing in the console, that is optional — skip it for class. Official model IDs, speeds, and limits: <a href="https://console.groq.com/docs/models" class="link-info" target="_blank" rel="noopener">console.groq.com/docs/models</a>.
+                                    </div>
+                                    <p class="small fw-semibold text-white mb-2">A. Create account (one time)</p>
+                                    <ol class="small ps-3 mb-3">
+                                        <li class="mb-2">Open <a href="https://groq.com/" class="link-info" target="_blank" rel="noopener">groq.com</a> → click <strong class="text-white">Sign up</strong> / <strong class="text-white">Get Started</strong> (wording may vary).</li>
+                                        <li class="mb-2">Sign up with <strong class="text-white">email</strong> or <strong class="text-white">Google / GitHub</strong> if shown — complete any email verification link Groq sends you.</li>
+                                        <li class="mb-0">Log in — you should reach the <strong class="text-white">Groq Console</strong> (dark developer UI).</li>
+                                    </ol>
+                                    <p class="small fw-semibold text-white mb-2">B. Create the API key (token)</p>
+                                    <ol class="small ps-3 mb-3">
+                                        <li class="mb-2">In the browser, open <a href="https://console.groq.com/keys" class="link-info" target="_blank" rel="noopener"><strong class="text-white">console.groq.com/keys</strong></a> (shortcut: Groq Console → left menu → <strong class="text-white">API Keys</strong>).</li>
+                                        <li class="mb-2">Click <strong class="text-white">Create API key</strong> (or similar).</li>
+                                        <li class="mb-2">Name it something you remember, e.g. <code>soseeks-bootcamp</code> → confirm.</li>
+                                        <li class="mb-2">Groq shows the key <strong class="text-white">once</strong> — copy the whole string. It always starts with <code class="text-warning">gsk_</code>.</li>
+                                        <li class="mb-0">Store it in a password manager or notes <strong class="text-white">privately</strong>. If you lose it, delete the old key in the console and <strong class="text-white">create a new one</strong> (free).</li>
+                                    </ol>
+                                    <p class="small fw-semibold text-white mb-2">C. Safety rules (same as real jobs)</p>
+                                    <ul class="small ps-3 mb-3">
+                                        <li class="mb-1">Put the key only in <strong class="text-white">backend</strong> env vars or a local <code>.env</code> file — <strong class="text-white">never</strong> in React source, never in screenshots, never on GitHub.</li>
+                                        <li class="mb-0">If a key leaks, <strong class="text-white">revoke</strong> it in the same Keys page and create a new one.</li>
+                                    </ul>
+                                    <p class="small fw-semibold text-white mb-1">D. Which model ID to use?</p>
+                                    <ul class="small ps-3 mb-3">
+                                        <li class="mb-1"><strong class="text-white">Default in our <code>main.py</code>:</strong> <code>llama-3.1-8b-instant</code> — listed under production models on <a href="https://console.groq.com/docs/models" class="link-info" target="_blank" rel="noopener">Supported Models</a>, very fast for demos.</li>
+                                        <li class="mb-1"><strong class="text-white">Optional upgrade:</strong> <code>llama-3.3-70b-versatile</code> or <code>openai/gpt-oss-20b</code> — check the table for context length and limits; heavier models use more of your per-minute allowance.</li>
+                                        <li class="mb-0">Change model without new key: set env <code>GROQ_MODEL</code> to any <strong class="text-white">current</strong> model id from that docs page.</li>
+                                    </ul>
+                                    <p class="small fw-semibold text-white mb-1">E. Set the key in your terminal (same window where you will run <code>uvicorn</code>)</p>
+                                    <div class="bc-pre-wrap">
+                                        <div class="bc-pre-label"><span></span>Windows CMD</div>
+                                        <pre><code class="language-bash">set GROQ_API_KEY=gsk_paste_your_full_key_here</code></pre>
+                                    </div>
+                                    <div class="bc-pre-wrap">
+                                        <div class="bc-pre-label"><span></span>Mac / Linux (bash or zsh)</div>
+                                        <pre><code class="language-bash">export GROQ_API_KEY="gsk_paste_your_full_key_here"</code></pre>
+                                    </div>
+                                    <p class="small mb-2 text-muted">Optional: confirm the key works (Mac/Linux / Git Bash). On Windows CMD after <code>set GROQ_API_KEY=...</code>, replace <code>$GROQ_API_KEY</code> with <code>%GROQ_API_KEY%</code> inside the header quotes.</p>
+                                    <div class="bc-pre-wrap">
+                                        <div class="bc-pre-label"><span></span>Verify key (optional)</div>
+                                        <pre><code class="language-bash">curl -s "https://api.groq.com/openai/v1/models" \
+  -H "Authorization: Bearer $GROQ_API_KEY" \
+  -H "Content-Type: application/json"</code></pre>
+                                    </div>
+                                    <p class="small mb-0 text-muted">Groq’s HTTP API is OpenAI-compatible at <code class="text-info">https://api.groq.com/openai/v1</code>; LangChain’s <code>ChatGroq</code> uses your <code>GROQ_API_KEY</code> automatically.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bg-transparent border border-secondary border-opacity-50 rounded mb-2 overflow-hidden">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed bg-dark text-light" type="button" data-bs-toggle="collapse" data-bs-target="#winSetup">Windows — Command Prompt</button>
+                            </h3>
+                            <div id="winSetup" class="accordion-collapse collapse" data-bs-parent="#setupAccordion">
+                                <div class="accordion-body text-secondary">
+                                    <ol class="small mb-3 ps-3">
+                                        <li>Install Python 3.10+ from python.org — tick <strong class="text-white">Add python.exe to PATH</strong>.</li>
+                                        <li>Open <span class="bc-kbd">cmd</span> (not PowerShell if you are new — fewer permission issues).</li>
+                                    </ol>
+                                    <div class="bc-pre-wrap">
+                                        <div class="bc-pre-label"><span></span>Windows — create project &amp; venv</div>
+                                        <pre><code class="language-bash">cd %USERPROFILE%\Desktop
+mkdir rag-chat-bootcamp
+cd rag-chat-bootcamp
+mkdir backend
+cd backend
+python -m venv .venv
+.venv\Scripts\activate.bat
+python -m pip install --upgrade pip
+pip install fastapi "uvicorn[standard]" python-multipart langchain langchain-core langchain-community langchain-groq langchain-text-splitters faiss-cpu pypdf sentence-transformers</code></pre>
+                                    </div>
+                                    <div class="bc-pre-wrap">
+                                        <div class="bc-pre-label"><span></span>Verify backend packages</div>
+                                        <pre><code class="language-bash">python -c "import fastapi; import faiss; print('fastapi', fastapi.__version__)"
+python -c "from langchain_groq import ChatGroq; print('langchain-groq OK')"</code></pre>
+                                    </div>
+                                    <p class="small mb-0"><strong class="text-white">Reminder:</strong> set <code>GROQ_API_KEY</code> in this same terminal before <code>uvicorn</code> (see Groq accordion above).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bg-transparent border border-secondary border-opacity-50 rounded mb-2 overflow-hidden">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed bg-dark text-light" type="button" data-bs-toggle="collapse" data-bs-target="#macSetup">Mac — Terminal (zsh)</button>
+                            </h3>
+                            <div id="macSetup" class="accordion-collapse collapse" data-bs-parent="#setupAccordion">
+                                <div class="accordion-body text-secondary">
+                                    <div class="bc-pre-wrap">
+                                        <div class="bc-pre-label"><span></span>Mac — create project &amp; venv</div>
+                                        <pre><code class="language-bash">cd ~/Desktop
+mkdir -p rag-chat-bootcamp/backend
+cd rag-chat-bootcamp/backend
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+pip install fastapi "uvicorn[standard]" python-multipart langchain langchain-core langchain-community langchain-groq langchain-text-splitters faiss-cpu pypdf sentence-transformers</code></pre>
+                                    </div>
+                                    <p class="small mb-0"><strong class="text-white">Reminder:</strong> <code>export GROQ_API_KEY="gsk_..."</code> in this shell before starting the API.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bg-transparent border border-secondary border-opacity-50 rounded mb-2 overflow-hidden">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed bg-dark text-light" type="button" data-bs-toggle="collapse" data-bs-target="#linuxSetup">Linux — Ubuntu / Debian</button>
+                            </h3>
+                            <div id="linuxSetup" class="accordion-collapse collapse" data-bs-parent="#setupAccordion">
+                                <div class="accordion-body text-secondary">
+                                    <p class="small">If <code>python3 -m venv</code> errors, run once:</p>
+                                    <div class="bc-pre-wrap">
+                                        <div class="bc-pre-label"><span></span>Ubuntu — venv support</div>
+                                        <pre><code class="language-bash">sudo apt update &amp;&amp; sudo apt install -y python3-venv python3-pip</code></pre>
+                                    </div>
+                                    <div class="bc-pre-wrap">
+                                        <div class="bc-pre-label"><span></span>Same as Mac after that</div>
+                                        <pre><code class="language-bash">cd ~/Desktop
+mkdir -p rag-chat-bootcamp/backend
+cd rag-chat-bootcamp/backend
+python3 -m venv .venv
+source .venv/bin/activate
+pip install fastapi "uvicorn[standard]" python-multipart langchain langchain-core langchain-community langchain-groq langchain-text-splitters faiss-cpu pypdf sentence-transformers</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bg-transparent border border-secondary border-opacity-50 rounded mb-2 overflow-hidden">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed bg-dark text-light" type="button" data-bs-toggle="collapse" data-bs-target="#reactSetup">React frontend (all OS)</button>
+                            </h3>
+                            <div id="reactSetup" class="accordion-collapse collapse" data-bs-parent="#setupAccordion">
+                                <div class="accordion-body text-secondary">
+                                    <p class="small">Install <a href="https://nodejs.org/" class="link-info" target="_blank" rel="noopener">Node.js LTS</a>. New terminal from <code>rag-chat-bootcamp</code> (parent of <code>backend</code>):</p>
+                                    <div class="bc-pre-wrap">
+                                        <div class="bc-pre-label"><span></span>Mac / Linux path</div>
+                                        <pre><code class="language-bash">cd ~/Desktop/rag-chat-bootcamp
+npx create-react-app@latest frontend
+cd frontend
+npm install axios</code></pre>
+                                    </div>
+                                    <div class="bc-pre-wrap">
+                                        <div class="bc-pre-label"><span></span>Windows path</div>
+                                        <pre><code class="language-bash">cd %USERPROFILE%\Desktop\rag-chat-bootcamp
+npx create-react-app@latest frontend
+cd frontend
+npm install axios</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bg-transparent border border-secondary border-opacity-50 rounded mb-2 overflow-hidden">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed bg-dark text-light" type="button" data-bs-toggle="collapse" data-bs-target="#runServers">Start servers (every time you code)</button>
+                            </h3>
+                            <div id="runServers" class="accordion-collapse collapse" data-bs-parent="#setupAccordion">
+                                <div class="accordion-body text-secondary">
+                                    <p class="small fw-semibold text-white mb-1">Terminal A — from <code>backend</code>, venv on, <code>GROQ_API_KEY</code> set in this shell</p>
+                                    <div class="bc-pre-wrap">
+                                        <div class="bc-pre-label"><span></span>Uvicorn</div>
+                                        <pre><code class="language-bash">cd backend
+uvicorn main:app --reload --host 127.0.0.1 --port 8000</code></pre>
+                                    </div>
+                                    <p class="small text-success mb-2">Good log line: <code>Uvicorn running on http://127.0.0.1:8000</code></p>
+                                    <p class="small fw-semibold text-white mb-1">Terminal B — from <code>frontend</code></p>
+                                    <div class="bc-pre-wrap">
+                                        <div class="bc-pre-label"><span></span>React dev server</div>
+                                        <pre><code class="language-bash">cd frontend
+npm start</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 4 -->
+            <section class="bootcamp-step card bc-card text-light mb-4 d-none">
+                <div class="card-body p-4 p-md-5">
+                    <h2 class="h4 mb-3"><span class="bc-hl">Section 4</span> — Backend: full <code>main.py</code> you can run</h2>
+                    <p class="text-secondary mb-3">Save as <code>backend/main.py</code>. <strong class="text-white">Embeddings</strong> use <code>HuggingFaceEmbeddings</code> on your laptop (no API). <strong class="text-white">Chat</strong> uses <code>ChatGroq</code> with your <code>GROQ_API_KEY</code> — same pattern as <a href="https://groq.com/" class="link-info" target="_blank" rel="noopener">Groq’s OpenAI-compatible endpoint</a>. If an import fails, re-run <code>pip install</code> from Section 3.</p>
+
+                    <div class="bc-callout-warn bc-callout">
+                        <strong class="text-white">Before <code>uvicorn</code>:</strong> set <code>GROQ_API_KEY</code> in the same terminal (free key from <a href="https://console.groq.com/keys" class="link-info" target="_blank" rel="noopener">console.groq.com/keys</a>). Never commit the key to Git.
+                    </div>
+
+                    <div class="bc-pre-wrap">
+                        <div class="bc-pre-label"><span></span>backend / main.py</div>
+                        <pre><code class="language-python">import os
+import tempfile
+from typing import Optional
+
+from fastapi import FastAPI, UploadFile, File, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
+from langchain_community.document_loaders import PyPDFLoader
+from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_community.vectorstores import FAISS
+from langchain_groq import ChatGroq
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain_core.messages import SystemMessage, HumanMessage
+
+# Groq chat model — change with env GROQ_MODEL (see https://console.groq.com/docs/models )
+GROQ_MODEL = os.getenv("GROQ_MODEL", "llama-3.1-8b-instant")
+# Local embeddings (first run downloads ~90MB model to Hugging Face cache)
+HF_EMBED_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
+
+app = FastAPI(title="Soseeks RAG Bootcamp (Groq + local embeddings)")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+vectorstore: Optional[FAISS] = None
+
+BASE = os.path.dirname(os.path.abspath(__file__))
+DATA_DIR = os.path.join(BASE, "data", "raw")
+os.makedirs(DATA_DIR, exist_ok=True)
+
+
+def require_groq_key():
+    if not os.getenv("GROQ_API_KEY"):
+        raise HTTPException(
+            500,
+            "GROQ_API_KEY is not set. Create a free key at https://console.groq.com/keys",
+        )
+
+
+@app.get("/health")
+def health():
+    return {
+        "status": "ok",
+        "has_index": vectorstore is not None,
+        "groq_model": GROQ_MODEL,
+        "embed_model": HF_EMBED_MODEL,
+    }
+
+
+@app.post("/upload")
+async def upload(file: UploadFile = File(...)):
+    global vectorstore
+    if not file.filename.lower().endswith(".pdf"):
+        raise HTTPException(400, "Only .pdf files are supported in this bootcamp version.")
+
+    raw = await file.read()
+    disk_path = os.path.join(DATA_DIR, file.filename)
+    with open(disk_path, "wb") as f:
+        f.write(raw)
+
+    fd, tmp_path = tempfile.mkstemp(suffix=".pdf")
+    os.write(fd, raw)
+    os.close(fd)
+    try:
+        loader = PyPDFLoader(tmp_path)
+        documents = loader.load()
+    finally:
+        os.remove(tmp_path)
+
+    splitter = RecursiveCharacterTextSplitter(chunk_size=900, chunk_overlap=120)
+    chunks = splitter.split_documents(documents)
+
+    embeddings = HuggingFaceEmbeddings(model_name=HF_EMBED_MODEL)
+    vectorstore = FAISS.from_documents(chunks, embeddings)
+
+    return {
+        "ok": True,
+        "filename": file.filename,
+        "pages": len(documents),
+        "chunks": len(chunks),
+    }
+
+
+@app.post("/chat")
+async def chat(payload: dict):
+    global vectorstore
+    require_groq_key()
+    question = (payload.get("question") or "").strip()
+    if not question:
+        raise HTTPException(400, 'JSON body must include "question".')
+    if vectorstore is None:
+        raise HTTPException(400, "Upload a PDF first using POST /upload.")
+
+    docs_found = vectorstore.similarity_search(question, k=5)
+    context = "\n\n---\n\n".join(d.page_content for d in docs_found)
+
+    system = (
+        "You are a helpful tutor. Answer ONLY using the CONTEXT blocks. "
+        "If the answer is not in the context, say you do not have that information in the uploaded file."
+    )
+    human = f"CONTEXT:\n{context}\n\nQUESTION:\n{question}"
+
+    llm = ChatGroq(model=GROQ_MODEL, temperature=0)
+    reply = llm.invoke(
+        [SystemMessage(content=system), HumanMessage(content=human)]
+    )
+
+    return {
+        "answer": reply.content,
+        "chunks_used": len(docs_found),
+    }</code></pre>
+                    </div>
+
+                    <p class="text-secondary small mb-2"><strong class="text-white">Try in Swagger</strong> (<code>/docs</code>): execute <code>POST /upload</code> with a small PDF, then <code>POST /chat</code> with body:</p>
+                    <div class="bc-pre-wrap">
+                        <div class="bc-pre-label"><span></span>Example /chat body</div>
+                        <pre><code class="language-json">{
+  "question": "Summarize the main topic of the document in 3 bullet points."
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 5 -->
+            <section class="bootcamp-step card bc-card text-light mb-4 d-none">
+                <div class="card-body p-4 p-md-5">
+                    <h2 class="h4 mb-3"><span class="bc-hl">Section 5</span> — Frontend: upload + chat (App.js)</h2>
+                    <p class="text-secondary mb-3">Replace <code>frontend/src/App.js</code> with this. It uses a hidden file input, <code>FormData</code> for <code>/upload</code>, and JSON for <code>/chat</code>. Status text tells the student each step succeeded.</p>
+
+                    <div class="bc-pre-wrap">
+                        <div class="bc-pre-label"><span></span>frontend / src / App.js</div>
+                        <pre><code class="language-jsx">import { useRef, useState } from "react";
+import axios from "axios";
+import "./App.css";
+
+const API = "http://127.0.0.1:8000";
+
+export default function App() {
+  const fileRef = useRef(null);
+  const [question, setQuestion] = useState("");
+  const [answer, setAnswer] = useState("");
+  const [status, setStatus] = useState("Upload a PDF, then ask a question.");
+
+  async function uploadPdf() {
+    const f = fileRef.current?.files?.[0];
+    if (!f) {
+      setStatus("Choose a .pdf file first.");
+      return;
+    }
+    const fd = new FormData();
+    fd.append("file", f);
+    setStatus("Uploading and building index…");
+    const res = await axios.post(`${API}/upload`, fd, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
+    setStatus(
+      `Indexed: ${res.data.filename} — ${res.data.chunks} chunks from ${res.data.pages} pages.`
+    );
+  }
+
+  async function ask() {
+    if (!question.trim()) return;
+    setStatus("Asking the model…");
+    const res = await axios.post(`${API}/chat`, { question });
+    setAnswer(res.data.answer);
+    setStatus(`Used ${res.data.chunks_used} text chunks from your PDF.`);
+  }
+
+  return (
+    &lt;div className="App" style={{ maxWidth: 720, margin: "40px auto", padding: 16 }}&gt;
+      &lt;h1&gt;My RAG Chat (Soseeks Bootcamp)&lt;/h1&gt;
+
+      &lt;section style={{ marginBottom: 24 }}&gt;
+        &lt;h2&gt;1) Upload PDF&lt;/h2&gt;
+        &lt;input ref={fileRef} type="file" accept="application/pdf" /&gt;
+        &lt;button type="button" onClick={uploadPdf} style={{ marginLeft: 12 }}&gt;
+          Upload to server
+        &lt;/button&gt;
+      &lt;/section&gt;
+
+      &lt;section style={{ marginBottom: 24 }}&gt;
+        &lt;h2&gt;2) Chat with your file&lt;/h2&gt;
+        &lt;textarea
+          rows={3}
+          style={{ width: "100%" }}
+          placeholder="Ask something that is answered inside the PDF…"
+          value={question}
+          onChange={(e) =&gt; setQuestion(e.target.value)}
+        /&gt;
+        &lt;br /&gt;
+        &lt;button type="button" onClick={ask} style={{ marginTop: 8 }}&gt;
+          Send question
+        &lt;/button&gt;
+      &lt;/section&gt;
+
+      &lt;p&gt;&lt;strong&gt;Status:&lt;/strong&gt; {status}&lt;/p&gt;
+      &lt;h3&gt;Answer&lt;/h3&gt;
+      &lt;pre
+        style={{
+          whiteSpace: "pre-wrap",
+          background: "#111",
+          color: "#e2e8f0",
+          padding: 16,
+          borderRadius: 8,
+        }}
+      &gt;
+        {answer || "(no answer yet)"}
+      &lt;/pre&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+                    </div>
+
+                    <div class="bc-callout">
+                        <strong class="text-white">CORS:</strong> If the browser console shows a CORS error, confirm <code>allow_origins</code> in <code>main.py</code> includes exactly your React URL (usually <code>http://localhost:3000</code>) and that you restarted <code>uvicorn</code> after edits.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 6 -->
+            <section class="bootcamp-step card bc-card text-light mb-4 d-none">
+                <div class="card-body p-4 p-md-5">
+                    <h2 class="h4 mb-3"><span class="bc-hl">Section 6</span> — Exact request / response flow</h2>
+                    <div class="bc-table-wrap mb-4">
+                        <table class="bc-table text-secondary">
+                            <thead><tr><th>Step</th><th>Who</th><th>HTTP</th><th>Body</th></tr></thead>
+                            <tbody>
+                                <tr><td>1</td><td>React</td><td><code>POST /upload</code></td><td><code>multipart/form-data</code> field name <code>file</code> (the PDF binary)</td></tr>
+                                <tr><td>2</td><td>FastAPI</td><td>—</td><td>Saves PDF under <code>data/raw/</code>, loads pages, splits, builds vectors with <strong class="text-white">HuggingFaceEmbeddings</strong> locally, builds <code>FAISS</code> in RAM.</td></tr>
+                                <tr><td>3</td><td>React</td><td><code>POST /chat</code></td><td><code>{"question":"..."}  </code> (JSON)</td></tr>
+                                <tr><td>4</td><td>FastAPI</td><td>—</td><td>Embeds question locally → FAISS top-5 chunks → builds prompt → <code>ChatGroq</code> (e.g. <code>llama-3.1-8b-instant</code>) → returns <code>{"answer":"...","chunks_used":5}</code></td></tr>
+                                <tr><td>5</td><td>React</td><td>—</td><td>Renders <code>res.data.answer</code> in the grey box.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-secondary small mb-0">That is the <strong class="text-white">full stack + Gen AI + vector “database”</strong> loop: no magic — every hop is a function you can log with <code>print()</code> in Python and <code>console.log()</code> in React.</p>
+                </div>
+            </section>
+
+            <!-- Step 7 -->
+            <section class="bootcamp-step card bc-card text-light mb-4 d-none">
+                <div class="card-body p-4 p-md-5">
+                    <h2 class="h4 mb-3"><span class="bc-hl">Section 7</span> — Keys, errors, optional SQLite</h2>
+                    <div class="bc-table-wrap mb-4">
+                        <table class="bc-table text-secondary">
+                            <thead><tr><th>Symptom</th><th>Likely fix</th></tr></thead>
+                            <tbody>
+                                <tr><td><code>ModuleNotFoundError</code></td><td>Virtual env not activated, or pip install not run in that venv.</td></tr>
+                                <tr><td><code>500</code> “GROQ_API_KEY is not set”</td><td>Set the key in the same terminal as <code>uvicorn</code>, then restart the server. Keys live at <a href="https://console.groq.com/keys" class="link-info" target="_blank" rel="noopener">console.groq.com/keys</a>.</td></tr>
+                                <tr><td><code>401</code> / invalid key from Groq</td><td>Key typo, revoked key, or wrong env var name — must be exactly <code>GROQ_API_KEY</code> (LangChain default for <code>ChatGroq</code>).</td></tr>
+                                <tr><td>Rate limit / quota</td><td>Free tier has limits; wait a minute or switch to a smaller model like <code>llama-3.1-8b-instant</code>. See <a href="https://console.groq.com/docs/rate-limits" class="link-info" target="_blank" rel="noopener">Groq rate limits</a>.</td></tr>
+                                <tr><td>First <code>/upload</code> very slow</td><td>Normal: <code>sentence-transformers</code> downloads <code>all-MiniLM-L6-v2</code> once. Keep Wi‑Fi on; later uploads are faster.</td></tr>
+                                <tr><td>Slow or empty answer from Groq</td><td>Check model id matches <a href="https://console.groq.com/docs/models" class="link-info" target="_blank" rel="noopener">Groq’s model list</a>; confirm Wi‑Fi; try <code>llama-3.1-8b-instant</code> if a larger model hits limits.</td></tr>
+                                <tr><td>Empty / generic answers</td><td>PDF has no selectable text (scanned image only) — use an OCR’d PDF for the demo.</td></tr>
+                                <tr><td>CORS error in browser</td><td>Fix <code>allow_origins</code> and restart uvicorn.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-secondary mb-2"><strong class="text-white">Optional SQLite (idea only):</strong> after a successful upload, insert a row <code>INSERT INTO uploads (name) VALUES (?)</code>; list those rows in React so users see history. Vectors still live in FAISS for this lesson.</p>
+                    <div class="bc-pre-wrap">
+                        <div class="bc-pre-label"><span></span>.gitignore (always)</div>
+                        <pre><code class="language-bash">.venv/
+__pycache__/
+.env
+data/raw/*.pdf
+*.sqlite3</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 8 -->
+            <section class="bootcamp-step card bc-card text-light mb-4 d-none" id="section-download">
+                <div class="card-body p-4 p-md-5">
+                    <h2 class="h4 mb-3"><span class="bc-hl">Section 8</span> — Checklist &amp; starter ZIP</h2>
+                    <ul class="text-secondary ps-3 mb-4">
+                        <li class="mb-2"><code>GROQ_API_KEY</code> is set before <code>uvicorn</code>; key visible in <a href="https://console.groq.com/keys" class="link-info" target="_blank" rel="noopener">Groq Console</a>.</li>
+                        <li class="mb-2"><code>/health</code> returns JSON with <code>groq_model</code> and <code>embed_model</code>.</li>
+                        <li class="mb-2"><code>/docs</code> shows Swagger; <code>/upload</code> works with a 2–3 page PDF.</li>
+                        <li class="mb-2"><code>/chat</code> returns an answer grounded in that PDF.</li>
+                        <li class="mb-2">React shows status lines updating after upload and after chat.</li>
+                    </ul>
+                    <p class="text-secondary mb-4">Official ZIP from Soseeks may pin LangChain versions — use it if your <code>pip</code> lines differ slightly.</p>
+                    <button type="button" class="btn btn-lg btn-primary px-4" id="btnDownloadHint" style="background: linear-gradient(135deg,#6366f1,#a855f7); border: none;">Download Source Code</button>
+                </div>
+            </section>
+
+            <div class="d-flex flex-wrap justify-content-between gap-3 mt-4 pt-3 border-top border-secondary border-opacity-50">
+                <button type="button" class="btn btn-outline-light" id="btnPrev">Previous</button>
+                <button type="button" class="btn btn-primary px-4" id="btnNext" style="background: linear-gradient(135deg,#6366f1,#7c3aed); border: none;">Next</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-clike.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-jsx.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+    <script src="bootcamp.js"></script>
+    <script>
+        document.getElementById('btnDownloadHint').addEventListener('click', function () {
+            alert('Get the official ZIP or repo link from your Soseeks mentor or your college / WhatsApp group.');
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            if (window.Prism) Prism.highlightAll();
+        });
+    </script>
+</body>
+</html>

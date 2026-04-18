@@ -1,0 +1,264 @@
+/* Gen AI Bootcamp — richer visuals + vibrant code (works with Prism) */
+
+#gate .gate-card {
+    box-shadow:
+        0 24px 80px rgba(0, 0, 0, 0.45),
+        0 0 60px rgba(99, 102, 241, 0.12);
+    border-color: rgba(129, 140, 248, 0.28) !important;
+}
+
+.bc-body {
+    background:
+        radial-gradient(ellipse 120% 80% at 50% -20%, rgba(99, 102, 241, 0.18), transparent 55%),
+        radial-gradient(ellipse 80% 50% at 100% 50%, rgba(192, 132, 252, 0.1), transparent 45%),
+        radial-gradient(ellipse 60% 40% at 0% 80%, rgba(6, 182, 212, 0.08), transparent 40%),
+        var(--bg, #030014);
+}
+
+/* Section cards */
+.bc-card {
+    border: 1px solid rgba(129, 140, 248, 0.22);
+    border-radius: 16px;
+    background: linear-gradient(155deg, rgba(22, 22, 45, 0.92) 0%, rgba(10, 10, 28, 0.88) 100%);
+    box-shadow:
+        0 4px 24px rgba(0, 0, 0, 0.35),
+        0 0 0 1px rgba(192, 132, 252, 0.06) inset;
+}
+
+.bc-card h1,
+.bc-card h2,
+.bc-card .bc-hl {
+    font-family: var(--font-display, 'Orbitron', sans-serif);
+    letter-spacing: 0.02em;
+}
+
+.bc-hl {
+    background: linear-gradient(135deg, #a5b4fc, #e879f9, #67e8f9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.bc-callout {
+    border-left: 4px solid #818cf8;
+    border-radius: 0 12px 12px 0;
+    background: rgba(99, 102, 241, 0.08);
+    padding: 1rem 1.25rem;
+    margin: 1rem 0;
+}
+
+.bc-callout-warn {
+    border-left-color: #fbbf24;
+    background: rgba(251, 191, 36, 0.08);
+}
+
+.bc-table-wrap {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid rgba(129, 140, 248, 0.2);
+    margin: 1rem 0;
+}
+
+.bc-table {
+    width: 100%;
+    font-size: 0.85rem;
+    border-collapse: collapse;
+    margin: 0;
+}
+
+.bc-table th,
+.bc-table td {
+    padding: 0.65rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(99, 102, 241, 0.12);
+}
+
+.bc-table th {
+    background: rgba(99, 102, 241, 0.12);
+    color: #e0e7ff;
+    font-weight: 600;
+}
+
+.bc-table tr:last-child td {
+    border-bottom: none;
+}
+
+.bc-tree {
+    font-family: var(--font-code, 'Fira Code', monospace);
+    font-size: 0.78rem;
+    line-height: 1.65;
+    color: #cbd5e1;
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(129, 140, 248, 0.2);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    margin: 0.75rem 0;
+    white-space: pre;
+    overflow-x: auto;
+}
+
+.bc-kbd {
+    display: inline-block;
+    padding: 0.12em 0.45em;
+    border-radius: 6px;
+    font-family: var(--font-code, monospace);
+    font-size: 0.8em;
+    background: rgba(99, 102, 241, 0.2);
+    color: #c4b5fd;
+    border: 1px solid rgba(129, 140, 248, 0.35);
+}
+
+/* Progress bar glow */
+.bc-progress {
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.25);
+}
+
+.bc-progress .progress-bar {
+    background: linear-gradient(90deg, #6366f1, #a855f7, #22d3ee) !important;
+}
+
+/* Code block frame (wraps Prism) */
+.bc-pre-wrap {
+    position: relative;
+    margin: 1rem 0;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(129, 140, 248, 0.4);
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.45),
+        0 0 60px rgba(99, 102, 241, 0.12);
+}
+
+.bc-pre-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 14px 8px 16px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #a5b4fc;
+    background: linear-gradient(90deg, rgba(30, 27, 60, 0.98), rgba(15, 15, 35, 0.98));
+    border-bottom: 1px solid rgba(129, 140, 248, 0.25);
+}
+
+/* Dots are drawn with box-shadow — shadow does NOT widen layout, so reserve space or text overlaps */
+.bc-pre-label span {
+    flex-shrink: 0;
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #f87171;
+    box-shadow:
+        16px 0 0 #fbbf24,
+        32px 0 0 #4ade80;
+    /* Red ~0–10px, yellow ~11–21px, green ~27–37px from left → need ~44px + gap before title text */
+    margin-right: 44px;
+}
+
+.bc-pre-wrap pre {
+    margin: 0 !important;
+    border-radius: 0 !important;
+    max-height: 70vh;
+    overflow: auto;
+}
+
+/* Prism overrides — punchier than default one-dark */
+pre[class*='language-'] {
+    background: linear-gradient(165deg, #151528 0%, #0c0c18 100%) !important;
+}
+
+code[class*='language-'] {
+    font-family: 'Fira Code', 'JetBrains Mono', Consolas, monospace !important;
+    font-size: 0.8125rem !important;
+    line-height: 1.65 !important;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: #6b7a8f !important;
+    font-style: italic;
+}
+
+.token.punctuation {
+    color: #89ddff !important;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #ff9cac !important;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #c3e88d !important;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #89ddff !important;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #c792ea !important;
+    font-weight: 600;
+}
+
+.token.function,
+.token.class-name {
+    color: #82aaff !important;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #f78c6c !important;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+
+.token.italic {
+    font-style: italic;
+}
+
+/* Accordion buttons on bootcamp pages */
+.bc-accordion .accordion-button:not(.collapsed) {
+    background: linear-gradient(90deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.12)) !important;
+    color: #f1f5f9 !important;
+    box-shadow: none;
+}
+
+.bc-accordion .accordion-button:focus {
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.35);
+}
+
+/* Landing hero extras */
+.bc-hero-glow {
+    border: 1px solid rgba(129, 140, 248, 0.28);
+    border-radius: var(--radius, 16px);
+    background: linear-gradient(145deg, rgba(25, 25, 50, 0.95), rgba(12, 12, 30, 0.9));
+    box-shadow:
+        0 8px 40px rgba(0, 0, 0, 0.4),
+        0 0 80px rgba(99, 102, 241, 0.1);
+}
