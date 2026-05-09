@@ -1165,6 +1165,68 @@ section {
     right: 16px;
 }
 
+.product-status-row {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: flex-end;
+    z-index: 2;
+}
+
+.product-status.demo {
+    background: rgba(6, 182, 212, 0.12);
+    color: #22d3ee;
+    border-color: rgba(6, 182, 212, 0.28);
+}
+
+.product-status.preview {
+    background: rgba(167, 139, 250, 0.12);
+    color: #c4b5fd;
+    border-color: rgba(167, 139, 250, 0.28);
+}
+
+.product-card--remind {
+    position: relative;
+    border-color: rgba(99, 102, 241, 0.35);
+    background: linear-gradient(180deg, rgba(109, 40, 217, 0.12) 0%, var(--bg-card) 55%);
+}
+
+.product-hologram--remind {
+    animation: remindHoloPulse 3s ease-in-out infinite;
+}
+
+.product-hologram--remind::before {
+    border-color: rgba(99, 102, 241, 0.3);
+}
+
+.product-hologram--remind img {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    display: block;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+}
+
+@keyframes remindHoloPulse {
+    0%, 100% {
+        filter: drop-shadow(0 0 8px rgba(109, 40, 217, 0.35));
+    }
+    50% {
+        filter: drop-shadow(0 0 18px rgba(59, 130, 246, 0.45));
+    }
+}
+
+.product-card--remind h3 {
+    font-size: 1.08rem;
+    margin-bottom: 10px;
+}
+
 /* Chat2Bill: icon mark matches other product holograms — no wide raster box */
 .product-hologram--c2b {
     animation: c2bHoloPulse 3s ease-in-out infinite;

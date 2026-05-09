@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" role="img" aria-label="Remind">
+  <defs>
+    <linearGradient id="remG" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6d28d9"/>
+      <stop offset="0.55" stop-color="#6366f1"/>
+      <stop offset="1" stop-color="#3b82f6"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="40" height="40" rx="11" fill="url(#remG)"/>
+  <path fill="#fff" fill-opacity="0.98" d="M14 13h18a3.5 3.5 0 013.5 3.5v9.5a3.5 3.5 0 01-3.5 3.5h-9.2l-5.3 4.2V29.5H14a3.5 3.5 0 01-3.5-3.5v-9.5A3.5 3.5 0 0114 13z"/>
+  <circle cx="19" cy="22" r="1.6" fill="#6366f1"/>
+  <circle cx="24" cy="22" r="1.6" fill="#6366f1"/>
+  <circle cx="29" cy="22" r="1.6" fill="#6366f1"/>
+</svg>
