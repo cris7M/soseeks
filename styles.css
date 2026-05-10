@@ -1795,16 +1795,69 @@ section {
 }
 
 .footer-bottom {
-    padding: 24px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    padding: 28px 0 36px;
     position: relative;
 }
 
-.footer-bottom p {
+.footer-bottom-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-entity {
+    font-family: var(--font-display);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text);
+    margin-bottom: 14px;
+}
+
+.footer-registrations {
+    margin-bottom: 4px;
+}
+
+.footer-reg {
+    color: var(--text-dim);
+    font-size: 0.78rem;
+    line-height: 1.65;
+    margin: 0 0 4px;
+}
+
+.footer-reg--mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+}
+
+.footer-reg-k {
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-right: 6px;
+}
+
+.footer-bottom-divider {
+    height: 1px;
+    max-width: 200px;
+    margin: 18px auto 16px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+.footer-copy {
     color: var(--text-dim);
     font-size: 0.8rem;
+    margin: 0 0 10px;
+    font-style: normal;
+}
+
+.footer-address {
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    line-height: 1.6;
+    font-style: normal;
+    margin: 0;
 }
 
 /* ============================================
@@ -1892,9 +1945,11 @@ section {
     }
 
     .footer-bottom {
-        flex-direction: column;
-        gap: 8px;
-        text-align: center;
+        padding: 24px 0 32px;
+    }
+
+    .footer-bottom-inner {
+        padding: 0 8px;
     }
 
     .rocket-scene {
