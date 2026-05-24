@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soseeks India — Pitch Deck 2026</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/deck.css" />
+</head>
+<body>
+  <div class="app">
+
+    <!-- Toolbar -->
+    <header class="toolbar">
+      <div class="toolbar-brand">
+        <span class="brand-logo">Soseeks</span>
+        <span class="toolbar-deck-label">Pitch Deck 2026</span>
+      </div>
+
+      <button class="toolbar-btn" id="prevBtn" title="Previous (←)">← Prev</button>
+      <span class="slide-counter" id="slideCounter">1 / 14</span>
+      <button class="toolbar-btn" id="nextBtn" title="Next (→)">Next →</button>
+
+      <span class="toolbar-hint">← → navigate &nbsp;|&nbsp; F present</span>
+
+      <button class="toolbar-btn" id="presentBtn" title="Fullscreen (F)">Present</button>
+
+      <div class="download-dropdown" id="downloadDropdown">
+        <button class="toolbar-btn primary" id="downloadToggle">⬇ Download</button>
+        <div id="downloadMenu" class="download-menu" hidden>
+          <button type="button" class="download-item" id="dlCurrentPng">Current slide — PNG</button>
+          <button type="button" class="download-item" id="dlCurrentPdf">Current slide — PDF</button>
+          <hr class="download-divider" />
+          <button type="button" class="download-item" id="dlAllPng">All slides — PNG</button>
+          <button type="button" class="download-item" id="dlAllPdf">All slides — single PDF</button>
+        </div>
+      </div>
+      <a href="../index.html" class="toolbar-btn toolbar-link">← Website</a>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h3>Slides</h3>
+      <nav class="thumb-list">
+        <div class="thumb active" data-slide="0"><span class="thumb-num">1</span><span class="thumb-title">Cover</span></div>
+        <div class="thumb" data-slide="1"><span class="thumb-num">2</span><span class="thumb-title">Our Story</span></div>
+        <div class="thumb" data-slide="2"><span class="thumb-num">3</span><span class="thumb-title">The Problem</span></div>
+        <div class="thumb" data-slide="3"><span class="thumb-num">4</span><span class="thumb-title">The Solution</span></div>
+        <div class="thumb" data-slide="4"><span class="thumb-num">5</span><span class="thumb-title">Product Ecosystem</span></div>
+        <div class="thumb" data-slide="5"><span class="thumb-num">6</span><span class="thumb-title">Chat2Bill</span></div>
+        <div class="thumb" data-slide="6"><span class="thumb-num">7</span><span class="thumb-title">RagBook</span></div>
+        <div class="thumb" data-slide="7"><span class="thumb-num">8</span><span class="thumb-title">Market Opportunity</span></div>
+        <div class="thumb" data-slide="8"><span class="thumb-num">9</span><span class="thumb-title">Business Model</span></div>
+        <div class="thumb" data-slide="9"><span class="thumb-num">10</span><span class="thumb-title">Competitive Advantage</span></div>
+        <div class="thumb" data-slide="10"><span class="thumb-num">11</span><span class="thumb-title">Current Progress</span></div>
+        <div class="thumb" data-slide="11"><span class="thumb-num">12</span><span class="thumb-title">Roadmap</span></div>
+        <div class="thumb" data-slide="12"><span class="thumb-num">13</span><span class="thumb-title">Funding Ask</span></div>
+        <div class="thumb" data-slide="13"><span class="thumb-num">14</span><span class="thumb-title">Closing</span></div>
+      </nav>
+    </aside>
+
+    <!-- Viewer -->
+    <main class="viewer">
+      <div class="viewer-inner">
+
+        <button class="nav-arrow prev" aria-label="Previous">‹</button>
+        <button class="nav-arrow next" aria-label="Next">›</button>
+        <div class="progress-bar" id="progressBar" style="width:7.14%"></div>
+
+        <!-- SLIDE 1 — COVER -->
+        <section class="slide active slide-cover" id="slide-1">
+          <div class="slide-inner slide-cover">
+            <div class="cover-card">
+                <span class="brand-logo brand-logo--slide">Soseeks</span>
+                <h1>SOSEEKS INDIA PRIVATE LIMITED</h1>
+                <p class="subtitle">Business Automation &amp; SaaS Ecosystem for Indian SMEs and Enterprises</p>
+                <p class="tagline">Building Scalable Software Products from Real Business Problems</p>
+                <div class="pills">
+                  <span class="pill">Chat2Bill</span>
+                  <span class="pill">RagBook</span>
+                  <span class="pill">Workflow Ecosystem</span>
+                </div>
+                <div class="divider"></div>
+                <p class="footer-meta">Bhilai, Chhattisgarh, India &nbsp;•&nbsp; 2026 &nbsp;•&nbsp; www.soseeks.com</p>
+            </div>
+          </div>
+          <span class="slide-num-badge">01 / 14</span>
+        </section>
+
+        <!-- SLIDE 2 — OUR STORY -->
+        <section class="slide" id="slide-2">
+          <div class="slide-inner compact">
+            <header class="slide-header">
+              <p class="label">Our Story</p>
+              <h2>Built From Real Operational Challenges</h2>
+            </header>
+            <div class="slide-body grid-2-1">
+              <div>
+                <p class="text-block">Soseeks India Private Limited was founded with a practical approach toward solving operational problems faced by Indian businesses.</p>
+                <p class="text-block">Instead of building isolated custom software repeatedly for individual clients, Soseeks focuses on identifying recurring business challenges and converting them into scalable SaaS products.</p>
+                <p class="text-block">The company is building modular business automation platforms that simplify workflows, reduce operational complexity, and improve accessibility for SMEs and enterprises.</p>
+                <p class="text-block">Soseeks leverages modern automation technologies, conversational workflows, cloud infrastructure, and intelligent systems where they create meaningful business value.</p>
+              </div>
+              <div>
+                <div class="founder-card">
+                  <div class="avatar">SK</div>
+                  <p class="role">Founder &amp; Product Engineering</p>
+                  <h4>Sanjay Kumar</h4>
+                  <p>12+ years of professional experience in software engineering, automation, systems architecture, and product development. Leading platform engineering, SaaS infrastructure, and product strategy.</p>
+                </div>
+                <div class="founder-card">
+                  <div class="avatar" style="background:linear-gradient(135deg,#a07cfe,#d770e0)">MK</div>
+                  <p class="role">Co-Founder &amp; Operations</p>
+                  <h4>Madduri Kalyani</h4>
+                  <p>5+ years of teaching and operational experience. Managing operations, coordination, execution workflows, and organizational processes.</p>
+                </div>
+              </div>
+            </div>
+            <div class="quote-box">"We are building scalable products from recurring business requirements instead of one-time software projects."</div>
+          </div>
+          <span class="slide-num-badge">02 / 14</span>
+        </section>
+
+        <!-- SLIDE 3 — THE PROBLEM -->
+        <section class="slide" id="slide-3">
+          <div class="slide-inner compact">
+            <header class="slide-header">
+              <p class="label">The Problem</p>
+              <h2>Indian Businesses Still Operate With Fragmented Systems</h2>
+            </header>
+            <div class="slide-body">
+              <div class="grid-3" style="margin-bottom:14px">
+                  <div class="card blue"><h4>Expensive Software</h4><p>Most SMEs cannot afford enterprise ERP systems or high-cost custom software.</p></div>
+                  <div class="card purple"><h4>Operational Complexity</h4><p>Business owners struggle with multiple disconnected tools for billing, inventory, reminders, analytics, and communication.</p></div>
+                  <div class="card magenta"><h4>Low Technology Adoption</h4><p>Many traditional businesses avoid software due to complexity and training requirements.</p></div>
+                </div>
+                <div class="grid-2">
+                  <div class="card blue"><h4>Lack of Workflow Simplification</h4><p>Existing systems focus on features instead of operational simplicity.</p></div>
+                  <div class="card purple"><h4>Enterprise Knowledge Challenges</h4><p>Organizations struggle with document retrieval, internal knowledge access, and workflow management.</p></div>
+                </div>
+            </div>
+          </div>
+          <span class="slide-num-badge">03 / 14</span>
+        </section>
+
+        <!-- SLIDE 4 — THE SOLUTION -->
+        <section class="slide" id="slide-4">
+          <div class="slide-inner compact">
+            <header class="slide-header">
+              <p class="label">The Solution</p>
+              <h2>Simplified SaaS Platforms Built for Real Business Operations</h2>
+            </header>
+            <div class="slide-body grid-2-1" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+                <div class="card blue" style="padding:18px">
+                  <p class="section-label">Core Approach</p>
+                  <p class="text-block" style="margin-bottom:12px">Soseeks develops modular SaaS platforms focused on:</p>
+                  <ul class="bullet-list">
+                    <li>Business automation</li>
+                    <li>Operational workflows</li>
+                    <li>Enterprise knowledge management</li>
+                    <li>Conversational interfaces</li>
+                    <li>Simplified user experiences</li>
+                    <li>Affordable subscription models</li>
+                  </ul>
+                </div>
+                <div class="grid-2" style="grid-template-columns:1fr 1fr;gap:10px">
+                  <div class="card blue"><h4>Workflow Simplification</h4><p>Reducing operational complexity for business owners</p></div>
+                  <div class="card purple"><h4>Cloud-Based SaaS</h4><p>Accessible anywhere with scalable infrastructure</p></div>
+                  <div class="card magenta"><h4>Conversational Interfaces</h4><p>Natural workflow interaction for non-technical users</p></div>
+                  <div class="card blue"><h4>Automation Layer</h4><p>Reducing repetitive operational tasks</p></div>
+                  <div class="card purple" style="grid-column:1/-1"><h4>Enterprise Knowledge Systems</h4><p>Intelligent retrieval and document workflows for organizations</p></div>
+                </div>
+            </div>
+          </div>
+          <span class="slide-num-badge">04 / 14</span>
+        </section>
+
+        <!-- SLIDE 5 — PRODUCT ECOSYSTEM -->
+        <section class="slide" id="slide-5">
+          <div class="slide-inner compact">
+            <header class="slide-header">
+              <p class="label">Product Ecosystem</p>
+              <h2>Multiple Products Built on Shared Operational Infrastructure</h2>
+            </header>
+            <div class="slide-body">
+              <p class="section-label">Primary Products</p>
+              <div class="grid-2" style="margin-bottom:12px">
+                <div class="card blue">
+                  <span class="product-badge primary">Primary</span>
+                  <h4>Chat2Bill</h4>
+                  <p>Billing, inventory, khata, analytics, and business operations platform for SMEs.</p>
+                </div>
+                <div class="card purple">
+                  <span class="product-badge primary">Primary</span>
+                  <h4>RagBook</h4>
+                  <p>Enterprise knowledge and workflow intelligence platform using Retrieval-Augmented Generation (RAG).</p>
+                </div>
+              </div>
+              <p class="section-label">Ecosystem Extensions</p>
+              <div class="grid-2" style="margin-bottom:14px">
+                <div class="card magenta">
+                  <span class="product-badge extension">Extension</span>
+                  <h4>Remind</h4>
+                  <p>Workflow and reminder automation platform.</p>
+                </div>
+                <div class="card blue">
+                  <span class="product-badge extension">Extension</span>
+                  <h4>WashDost</h4>
+                  <p>Subscription-based service operations and workflow management platform.</p>
+                </div>
+              </div>
+              <div class="highlight-box">
+                <h4>Strategic Positioning</h4>
+                <ul class="bullet-list" style="flex-direction:row;flex-wrap:wrap;gap:8px 24px">
+                  <li>Shared workflow infrastructure</li>
+                  <li>Scalable SaaS architecture</li>
+                  <li>Business automation systems</li>
+                  <li>Modular product expansion</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <span class="slide-num-badge">05 / 14</span>
+        </section>
+
+        <!-- SLIDE 6 — CHAT2BILL -->
+        <section class="slide" id="slide-6">
+          <div class="slide-inner compact">
+            <header class="slide-header">
+              <p class="label">Chat2Bill</p>
+              <h2>Live Business Dashboard &amp; Daily Operations</h2>
+            </header>
+            <div class="slide-body grid-2-1 grid-2-1--dashboard">
+              <div>
+                <p class="text-block">Chat2Bill helps Indian SMEs manage daily business operations through a simplified SaaS platform — with billing, inventory, khata, and a real-time dashboard in one place.</p>
+                <p class="section-label">Dashboard Highlights</p>
+                <ul class="bullet-list" style="margin-bottom:14px">
+                  <li>Today, week, month &amp; all-time sales</li>
+                  <li>Profit &amp; loss with margin tracking</li>
+                  <li>Inventory &amp; low-stock alerts</li>
+                  <li>Last 7 days sales chart</li>
+                  <li>Recent orders &amp; billing modules</li>
+                  <li>Billing, inventory, khata &amp; reports</li>
+                </ul>
+                <p class="section-label">Target Customers</p>
+                <div class="pills" style="justify-content:flex-start;margin-bottom:10px">
+                  <span class="pill">Retail Stores</span>
+                  <span class="pill">Restaurants</span>
+                  <span class="pill">Medical Shops</span>
+                  <span class="pill">Hardware Stores</span>
+                  <span class="pill">Service Businesses</span>
+                </div>
+                <div class="pricing-tag">₹399<span>/month</span> &nbsp;•&nbsp; Yearly plans &nbsp;•&nbsp; Scalable upgrades</div>
+              </div>
+              <figure class="chat2bill-figure">
+                <img class="chat2bill-img" src="assets/chat2bill_dashboard.jpg" alt="Chat2Bill live dashboard" loading="eager" decoding="sync" />
+                <figcaption>Chat2Bill Live Dashboard</figcaption>
+              </figure>
+            </div>
+          </div>
+          <span class="slide-num-badge">06 / 14</span>
+        </section>
+
+        <!-- SLIDE 7 — RAGBOOK -->
+        <section class="slide" id="slide-7">
+          <div class="slide-inner compact">
+            <header class="slide-header">
+              <p class="label">RagBook</p>
+              <h2>Enterprise Knowledge &amp; Workflow Intelligence Platform</h2>
+            </header>
+            <div class="slide-body">
+<p class="text-block">RagBook is an enterprise-focused platform designed to help organizations manage internal knowledge, workflows, documents, and operational intelligence. The platform leverages Retrieval-Augmented Generation (RAG) architecture for intelligent enterprise search and contextual information retrieval.</p>
+              <div class="pills" style="justify-content:flex-start;margin:14px 0">
+                <span class="pill">Enterprise Document Search</span>
+                <span class="pill">Knowledge Management</span>
+                <span class="pill">Contextual AI Responses</span>
+                <span class="pill">Workflow Intelligence</span>
+                <span class="pill">Conversational Search</span>
+                <span class="pill">Operational Knowledge</span>
+              </div>
+              <div class="grid-3">
+                <div class="card purple"><h4>Target Customers</h4><p>Enterprises, internal teams, organizations, and knowledge-driven operations.</p></div>
+                <div class="card blue"><h4>Revenue Strategy</h4><p>Enterprise licensing, cloud deployment, per-user pricing, organizational plans, custom onboarding.</p></div>
+                <div class="card magenta"><h4>Status</h4><p>Enterprise validation and pilot-stage development ongoing.</p></div>
+              </div>
+            </div>
+          </div>
+          <span class="slide-num-badge">07 / 14</span>
+        </section>
+
+        <!-- SLIDE 8 — MARKET OPPORTUNITY -->
+        <section class="slide" id="slide-8">
+          <div class="slide-inner compact">
+            <header class="slide-header">
+              <p class="label">Market Opportunity</p>
+              <h2>Massive Digital Transformation Opportunity in India</h2>
+            </header>
+            <div class="slide-body">
+<div class="grid-2" style="margin-bottom:12px">
+                <div class="card blue"><h4>SME Digitization</h4><p>Millions of Indian SMEs are moving toward digital operations.</p></div>
+                <div class="card purple"><h4>SaaS Adoption Growth</h4><p>Subscription-based software adoption is accelerating rapidly.</p></div>
+                <div class="card magenta"><h4>Enterprise Workflow Modernization</h4><p>Organizations are actively adopting workflow intelligence and knowledge systems.</p></div>
+                <div class="card blue"><h4>Operational Automation Demand</h4><p>Businesses increasingly seek affordable automation solutions.</p></div>
+              </div>
+              <div class="highlight-box">
+                <h4>Long-Term Opportunity</h4>
+                <ul class="bullet-list" style="flex-direction:row;flex-wrap:wrap;gap:8px 24px">
+                  <li>SME SaaS</li>
+                  <li>Workflow automation</li>
+                  <li>Enterprise knowledge systems</li>
+                  <li>Operational software</li>
+                  <li>Subscription business infrastructure</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <span class="slide-num-badge">08 / 14</span>
+        </section>
+
+        <!-- SLIDE 9 — BUSINESS MODEL -->
+        <section class="slide" id="slide-9">
+          <div class="slide-inner compact">
+            <header class="slide-header">
+              <p class="label">Business Model</p>
+              <h2>Recurring Revenue Through SaaS &amp; Enterprise Subscriptions</h2>
+            </header>
+            <div class="slide-body">
+<div class="grid-2" style="margin-bottom:14px">
+                <div class="card blue"><h4>SaaS Subscriptions</h4><p>Monthly and yearly plans for SMEs.</p></div>
+                <div class="card purple"><h4>Enterprise Deployments</h4><p>Custom organizational onboarding and deployment.</p></div>
+                <div class="card magenta"><h4>Workflow Automation Services</h4><p>Advanced automation modules and integrations.</p></div>
+                <div class="card blue"><h4>API &amp; Ecosystem Expansion</h4><p>Future integrations and partner ecosystem opportunities.</p></div>
+              </div>
+              <p class="section-label">Current Pricing Structure</p>
+              <table class="data-table">
+                <thead><tr><th>Product</th><th>Revenue Model</th><th>Pricing</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Chat2Bill</strong></td><td>SaaS Subscription</td><td>₹399/month</td></tr>
+                  <tr><td><strong>Remind</strong></td><td>SaaS Subscription</td><td>₹599/month</td></tr>
+                  <tr><td><strong>WashDost</strong></td><td>Subscription Model</td><td>₹1200/month</td></tr>
+                  <tr><td><strong>RagBook</strong></td><td>Enterprise Licensing</td><td>Custom Pricing</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <span class="slide-num-badge">09 / 14</span>
+        </section>
+
+        <!-- SLIDE 10 — COMPETITIVE ADVANTAGE -->
+        <section class="slide" id="slide-10">
+          <div class="slide-inner compact">
+            <header class="slide-header">
+              <p class="label">Competitive Advantage</p>
+              <h2>Built for Indian Business Workflows</h2>
+            </header>
+            <div class="slide-body grid-3">
+              <div class="card blue"><h4>Operational Simplicity</h4><p>Designed for non-technical business users.</p></div>
+              <div class="card purple"><h4>Affordable SaaS</h4><p>Lower adoption barrier compared to traditional ERP systems.</p></div>
+              <div class="card magenta"><h4>Modular Product Ecosystem</h4><p>Shared infrastructure across multiple workflow products.</p></div>
+              <div class="card blue"><h4>India-Focused Approach</h4><p>Built around local operational requirements.</p></div>
+              <div class="card purple"><h4>Fast Product Iteration</h4><p>Ability to rapidly convert real business requirements into scalable products.</p></div>
+              <div class="card magenta"><h4>Automation-First Architecture</h4><p>Reducing repetitive operational work for businesses.</p></div>
+            </div>
+          </div>
+          <span class="slide-num-badge">10 / 14</span>
+        </section>
+
+        <!-- SLIDE 11 — CURRENT PROGRESS -->
+        <section class="slide" id="slide-11">
+          <div class="slide-inner compact">
+            <header class="slide-header">
+              <p class="label">Current Progress</p>
+              <h2>Execution Already in Progress</h2>
+            </header>
+            <div class="slide-body grid-2-1">
+              <div class="milestone-grid">
+                <div class="milestone-item"><span class="milestone-dot" style="background:#6a82fb"></span>Incorporated as Soseeks India Private Limited</div>
+                <div class="milestone-item"><span class="milestone-dot" style="background:#a07cfe"></span>MSME Registered</div>
+                <div class="milestone-item"><span class="milestone-dot" style="background:#d770e0"></span>DPIIT Recognition Applied</div>
+                <div class="milestone-item"><span class="milestone-dot" style="background:#6a82fb"></span>SaaS ecosystem architecture established</div>
+                <div class="milestone-item"><span class="milestone-dot" style="background:#a07cfe"></span>Chat2Bill MVP under development</div>
+                <div class="milestone-item"><span class="milestone-dot" style="background:#d770e0"></span>RagBook enterprise validation initiated</div>
+                <div class="milestone-item"><span class="milestone-dot" style="background:#6a82fb"></span>Initial market discussions completed</div>
+                <div class="milestone-item"><span class="milestone-dot" style="background:#a07cfe"></span>Hiring initiated for marketing and growth</div>
+                <div class="milestone-item" style="grid-column:1/-1"><span class="milestone-dot" style="background:#d770e0"></span>Product ecosystem roadmap defined</div>
+              </div>
+              <div class="base-card">
+                <div class="head">Operational Base</div>
+                <div class="body">
+                  <h4>Bhilai, Chhattisgarh, India</h4>
+                  <p>Plot 13, Sun City, Aryaa Nagar<br/>Kohka, IIT Bhilai Road<br/>Bhilai, Chhattisgarh 490023</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span class="slide-num-badge">11 / 14</span>
+        </section>
+
+        <!-- SLIDE 12 — ROADMAP -->
+        <section class="slide" id="slide-12">
+          <div class="slide-inner compact">
+            <header class="slide-header">
+              <p class="label">Roadmap</p>
+              <h2>Scaling a Multi-Product SaaS Ecosystem</h2>
+            </header>
+            <div class="slide-body roadmap">
+              <div class="roadmap-phase">
+                <div class="phase-head blue">6 Months</div>
+                <ul>
+                  <li>Chat2Bill early launch</li>
+                  <li>Customer onboarding</li>
+                  <li>Core hiring</li>
+                  <li>Workflow stabilization</li>
+                </ul>
+              </div>
+              <div class="roadmap-phase">
+                <div class="phase-head purple">12 Months</div>
+                <ul>
+                  <li>RagBook enterprise pilots</li>
+                  <li>Workflow automation ecosystem expansion</li>
+                  <li>100+ paying customers</li>
+                  <li>Operational scaling</li>
+                </ul>
+              </div>
+              <div class="roadmap-phase">
+                <div class="phase-head magenta">24 Months</div>
+                <ul>
+                  <li>Multi-product ecosystem maturity</li>
+                  <li>Enterprise expansion</li>
+                  <li>Regional growth</li>
+                  <li>Scalable recurring revenue infrastructure</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <span class="slide-num-badge">12 / 14</span>
+        </section>
+
+        <!-- SLIDE 13 — FUNDING ASK -->
+        <section class="slide" id="slide-13">
+          <div class="slide-inner compact">
+            <header class="slide-header">
+              <p class="label">Funding Ask</p>
+              <h2>Seeking ₹30 Lakhs Seed Funding</h2>
+            </header>
+            <div class="slide-body grid-2-1">
+              <div class="funding-bars">
+                <div class="funding-row">
+                  <span class="label">Product Development</span>
+                  <div class="bar-track"><div class="bar-fill" style="width:35%;background:#6a82fb"></div></div>
+                  <span class="pct">35%</span>
+                </div>
+                <div class="funding-row">
+                  <span class="label">Hiring &amp; Team Expansion</span>
+                  <div class="bar-track"><div class="bar-fill" style="width:30%;background:#a07cfe"></div></div>
+                  <span class="pct">30%</span>
+                </div>
+                <div class="funding-row">
+                  <span class="label">Sales &amp; Marketing</span>
+                  <div class="bar-track"><div class="bar-fill" style="width:20%;background:#d770e0"></div></div>
+                  <span class="pct">20%</span>
+                </div>
+                <div class="funding-row">
+                  <span class="label">Infrastructure &amp; Cloud</span>
+                  <div class="bar-track"><div class="bar-fill" style="width:10%;background:#6a82fb"></div></div>
+                  <span class="pct">10%</span>
+                </div>
+                <div class="funding-row">
+                  <span class="label">Operations &amp; Compliance</span>
+                  <div class="bar-track"><div class="bar-fill" style="width:5%;background:#a07cfe"></div></div>
+                  <span class="pct">5%</span>
+                </div>
+              </div>
+              <div class="highlight-box" style="margin-top:0;height:100%">
+                <h4>Funding Objective</h4>
+                <ul class="bullet-list">
+                  <li>Product scaling</li>
+                  <li>Operational hiring</li>
+                  <li>Market expansion</li>
+                  <li>Customer acquisition</li>
+                  <li>Infrastructure development</li>
+                  <li>Workflow automation ecosystem growth</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <span class="slide-num-badge">13 / 14</span>
+        </section>
+
+        <!-- SLIDE 14 — CLOSING -->
+        <section class="slide slide-closing" id="slide-14">
+          <div class="slide-inner slide-closing">
+            <div class="closing-card">
+              <span class="brand-logo brand-logo--slide">Soseeks</span>
+              <h2>Building Practical Software Infrastructure for Indian Businesses</h2>
+              <p class="desc">Soseeks is building scalable SaaS and workflow automation platforms designed around real operational challenges faced by Indian SMEs and enterprises. By focusing on simplicity, affordability, and scalable infrastructure, the company aims to make modern business software accessible to a much larger segment of Indian businesses.</p>
+              <div class="contact-card">
+                <h4>Sanjay Kumar</h4>
+                <p class="role">Founder — Soseeks India Private Limited</p>
+                <p class="details">
+                  📞 8500518050<br/>
+                  🌐 www.soseeks.com<br/>
+                  📍 Bhilai, Chhattisgarh, India
+                </p>
+              </div>
+              <p class="slide-footer-tag">SaaS • Automation • Workflow Intelligence • Enterprise Systems</p>
+            </div>
+          </div>
+          <span class="slide-num-badge">14 / 14</span>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Download modal -->
+  <div class="modal-overlay" id="downloadModal">
+    <div class="modal">
+      <div class="spinner"></div>
+      <h3>Exporting Slides</h3>
+      <p id="modalLabel">Preparing download…</p>
+      <div class="modal-progress"><div class="modal-progress-fill" id="modalProgressFill"></div></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="js/deck.js"></script>
+</body>
+</html>
