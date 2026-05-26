@@ -1794,6 +1794,59 @@ section {
     transform: translateX(4px);
 }
 
+.footer-dpiit {
+    position: relative;
+    padding: 48px 20px 52px;
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+}
+
+.footer-dpiit-title {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text);
+    margin-bottom: 10px;
+}
+
+.footer-dpiit-meta {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    line-height: 1.5;
+    margin: 0 auto 28px;
+    max-width: 520px;
+}
+
+.footer-dpiit-cert {
+    display: inline-block;
+    max-width: min(360px, 100%);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(99, 102, 241, 0.22);
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow:
+        0 16px 48px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s, border-color 0.35s;
+}
+
+.footer-dpiit-cert:hover {
+    transform: translateY(-4px);
+    border-color: rgba(99, 102, 241, 0.4);
+    box-shadow:
+        0 24px 56px rgba(0, 0, 0, 0.45),
+        0 0 40px rgba(99, 102, 241, 0.12);
+}
+
+.footer-dpiit-cert img {
+    width: 100%;
+    height: auto;
+    display: block;
+    vertical-align: middle;
+}
+
 .footer-bottom {
     padding: 28px 0 36px;
     position: relative;
