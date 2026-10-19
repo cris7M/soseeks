@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none" role="img" aria-hidden="true">
+  <defs>
+    <linearGradient id="sanchayBg" x1="64" y1="48" x2="448" y2="464" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0f766e"/>
+      <stop offset="1" stop-color="#134e4a"/>
+    </linearGradient>
+    <linearGradient id="sanchayCoin" x1="360" y1="120" x2="420" y2="180" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5eead4"/>
+      <stop offset="1" stop-color="#14b8a6"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#sanchayBg)"/>
+  <ellipse cx="248" cy="278" rx="148" ry="118" fill="#ecfdf5"/>
+  <ellipse cx="368" cy="292" rx="52" ry="44" fill="#d1fae5"/>
+  <circle cx="352" cy="286" r="7" fill="#115e59"/>
+  <circle cx="384" cy="286" r="7" fill="#115e59"/>
+  <path d="M156 188c-8-36 28-58 52-38 10 8 8 28-6 36-18 10-40 6-46 2z" fill="#ecfdf5"/>
+  <rect x="168" y="360" width="36" height="52" rx="18" fill="#d1fae5"/>
+  <rect x="228" y="368" width="36" height="44" rx="18" fill="#d1fae5"/>
+  <rect x="288" y="368" width="36" height="44" rx="18" fill="#d1fae5"/>
+  <rect x="214" y="196" width="68" height="12" rx="6" fill="#115e59"/>
+  <circle cx="390" cy="150" r="42" fill="url(#sanchayCoin)" stroke="#ecfdf5" stroke-width="8"/>
+  <path d="M372 132h36M372 150h28M372 168h36" stroke="#115e59" stroke-width="8" stroke-linecap="round"/>
+  <path d="M118 268c-28 8-42 36-24 52 14 12 36 2 40-18" stroke="#ecfdf5" stroke-width="14" stroke-linecap="round"/>
+</svg>

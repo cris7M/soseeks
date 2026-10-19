@@ -1065,13 +1065,23 @@ section {
 
 #products {
     background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-surface) 50%, var(--bg-dark) 100%);
+    padding-top: 48px;
+    padding-bottom: 72px;
+}
+
+#products .section-header {
+    margin-bottom: 28px;
+}
+
+#products .section-header p {
+    font-size: 0.95rem;
 }
 
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    max-width: 960px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    max-width: 1080px;
     margin: 0 auto;
 }
 
@@ -1079,72 +1089,88 @@ section {
     position: relative;
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 36px;
+    border-radius: 14px;
+    padding: 28px 16px 16px;
     text-align: center;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
 }
 
 .product-card:hover {
-    transform: translateY(-8px) scale(1.02);
+    transform: translateY(-4px);
     border-color: rgba(99, 102, 241, 0.3);
-    box-shadow: 0 20px 60px rgba(99, 102, 241, 0.12);
+    box-shadow: 0 12px 32px rgba(99, 102, 241, 0.12);
 }
 
 .product-hologram {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 24px;
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 10px;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     animation: holoPulse 3s ease-in-out infinite;
+    flex-shrink: 0;
 }
 
 .product-hologram::before {
     content: '';
     position: absolute;
-    inset: -8px;
+    inset: -6px;
     border-radius: 50%;
     border: 1px dashed rgba(99, 102, 241, 0.2);
     animation: spin 10s linear infinite;
 }
 
-.product-hologram svg {
-    width: 100%;
-    height: 100%;
+.product-hologram svg,
+.product-hologram img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    display: block;
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
 }
 
 @keyframes holoPulse {
-    0%, 100% { filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.3)); }
-    50% { filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.6)); }
+    0%, 100% { filter: drop-shadow(0 0 6px rgba(99, 102, 241, 0.28)); }
+    50% { filter: drop-shadow(0 0 14px rgba(99, 102, 241, 0.5)); }
 }
 
 .product-card h3 {
     font-family: var(--font-display);
-    font-size: 1rem;
+    font-size: 0.92rem;
     font-weight: 600;
-    margin-bottom: 12px;
+    margin-bottom: 6px;
+    line-height: 1.35;
 }
 
 .product-card p {
     color: var(--text-muted);
-    font-size: 0.9rem;
-    margin-bottom: 20px;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    margin-bottom: 0;
 }
 
 .product-status {
+    position: absolute;
+    top: 10px;
+    right: 10px;
     display: inline-block;
-    padding: 4px 14px;
-    font-size: 0.7rem;
+    padding: 3px 8px;
+    font-size: 0.62rem;
     font-weight: 600;
-    letter-spacing: 1px;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     border-radius: 50px;
     background: rgba(245, 158, 11, 0.1);
     color: #f59e0b;
     border: 1px solid rgba(245, 158, 11, 0.2);
+    z-index: 2;
 }
 
 .product-status.live {
@@ -1153,192 +1179,73 @@ section {
     border-color: rgba(16, 185, 129, 0.2);
 }
 
+.product-status.halted {
+    background: rgba(148, 163, 184, 0.12);
+    color: #cbd5e1;
+    border-color: rgba(148, 163, 184, 0.32);
+}
+
+.product-card--halted {
+    border-color: rgba(148, 163, 184, 0.22);
+}
+
 .product-card--chat2bill {
-    position: relative;
     border-color: rgba(93, 95, 239, 0.35);
     background: linear-gradient(180deg, rgba(93, 95, 239, 0.1) 0%, var(--bg-card) 50%);
 }
 
-.product-card--chat2bill .product-status.live {
-    position: absolute;
-    top: 16px;
-    right: 16px;
+.product-card--sanchay {
+    border-color: rgba(20, 184, 166, 0.35);
+    background: linear-gradient(180deg, rgba(15, 118, 110, 0.14) 0%, var(--bg-card) 55%);
 }
 
-.product-status-row {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    justify-content: flex-end;
-    z-index: 2;
-}
-
-.product-status.demo {
-    background: rgba(6, 182, 212, 0.12);
-    color: #22d3ee;
-    border-color: rgba(6, 182, 212, 0.28);
-}
-
-.product-status.preview {
-    background: rgba(167, 139, 250, 0.12);
-    color: #c4b5fd;
-    border-color: rgba(167, 139, 250, 0.28);
-}
-
-.product-card--remind {
-    position: relative;
-    border-color: rgba(99, 102, 241, 0.35);
-    background: linear-gradient(180deg, rgba(109, 40, 217, 0.12) 0%, var(--bg-card) 55%);
-}
-
-.product-hologram--remind {
-    animation: remindHoloPulse 3s ease-in-out infinite;
-}
-
-.product-hologram--remind::before {
-    border-color: rgba(99, 102, 241, 0.3);
-}
-
-.product-hologram--remind img {
-    width: 52px;
-    height: 52px;
-    object-fit: contain;
-    display: block;
-    margin: 0;
-    position: relative;
-    z-index: 1;
-    flex-shrink: 0;
-}
-
-@keyframes remindHoloPulse {
-    0%, 100% {
-        filter: drop-shadow(0 0 8px rgba(109, 40, 217, 0.35));
-    }
-    50% {
-        filter: drop-shadow(0 0 18px rgba(59, 130, 246, 0.45));
-    }
-}
-
-.product-card--remind h3 {
-    font-size: 1.08rem;
-    margin-bottom: 10px;
+.product-hologram--sanchay::before {
+    border-color: rgba(45, 212, 191, 0.35);
 }
 
 .product-card--hms {
-    position: relative;
     border-color: rgba(59, 130, 246, 0.35);
     background: linear-gradient(180deg, rgba(59, 130, 246, 0.1) 0%, var(--bg-card) 50%);
-}
-
-.product-card--hms .product-status.live {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-}
-
-.product-hologram--hms {
-    animation: hmsHoloPulse 3s ease-in-out infinite;
 }
 
 .product-hologram--hms::before {
     border-color: rgba(59, 130, 246, 0.28);
 }
 
-.product-hologram--hms img {
-    width: 52px;
-    height: 52px;
-    object-fit: contain;
-    display: block;
-    margin: 0;
-    position: relative;
-    z-index: 1;
-    flex-shrink: 0;
-}
-
-@keyframes hmsHoloPulse {
-    0%, 100% {
-        filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.35));
-    }
-    50% {
-        filter: drop-shadow(0 0 18px rgba(96, 165, 250, 0.5));
-    }
-}
-
-.product-card--hms h3 {
-    font-size: 1.08rem;
-    margin-bottom: 10px;
-}
-
-/* Chat2Bill: icon mark matches other product holograms — no wide raster box */
-.product-hologram--c2b {
-    animation: c2bHoloPulse 3s ease-in-out infinite;
-}
-
 .product-hologram--c2b::before {
     border-color: rgba(93, 95, 239, 0.28);
 }
 
-.product-hologram--c2b img {
-    width: 52px;
-    height: 52px;
-    object-fit: contain;
-    display: block;
-    margin: 0;
-    position: relative;
-    z-index: 1;
-    flex-shrink: 0;
+.product-card--soon {
+    border-color: rgba(245, 158, 11, 0.22);
 }
 
-@keyframes c2bHoloPulse {
-    0%, 100% {
-        filter: drop-shadow(0 0 8px rgba(93, 95, 239, 0.35));
-    }
-    50% {
-        filter: drop-shadow(0 0 18px rgba(96, 165, 250, 0.5));
-    }
-}
-
-.product-logo-wide {
-    margin: 8px auto 12px;
-    max-width: 220px;
-}
-
-.product-logo-wide img {
-    width: 100%;
-    height: auto;
-    max-height: 48px;
-    object-fit: contain;
-    display: block;
-}
-
-.product-eyebrow {
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
+.product-card .product-eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     font-weight: 600;
     color: #a5b4fc;
     margin-bottom: 4px;
 }
 
-.product-card--chat2bill h3 {
-    font-size: 1.08rem;
-    margin-bottom: 10px;
+.product-card--sanchay .product-eyebrow {
+    color: #5eead4;
 }
 
 .product-card-actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
     justify-content: center;
     align-items: center;
-    margin-top: 12px;
+    margin-top: auto;
+    padding-top: 12px;
 }
 
 .product-card-actions .btn-sm {
-    padding: 10px 18px;
+    padding: 8px 12px;
+    font-size: 0.75rem;
 }
 
 /* ============================================
@@ -1959,6 +1866,101 @@ section {
 }
 
 /* ============================================
+   VOCATIONAL & BOOTCAMP GALLERY
+   ============================================ */
+
+#campus {
+    background:
+        radial-gradient(ellipse 80% 45% at 50% 18%, rgba(99, 102, 241, 0.16), transparent 62%),
+        linear-gradient(180deg, var(--bg-dark) 0%, #07061a 48%, var(--bg-dark) 100%);
+    overflow: hidden;
+    padding-bottom: 72px;
+}
+
+#campus .section-header {
+    max-width: 920px;
+    margin-bottom: 28px;
+}
+
+.campus-marquee {
+    margin-top: 0;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+
+.campus-track {
+    display: flex;
+    width: max-content;
+    animation: campus-run 38s linear infinite;
+}
+
+.campus-set {
+    display: flex;
+    gap: 16px;
+    padding-right: 16px;
+}
+
+#campus.is-paused .campus-track,
+.campus-marquee:hover .campus-track {
+    animation-play-state: paused;
+}
+
+@keyframes campus-run {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+.campus-card {
+    position: relative;
+    flex: 0 0 auto;
+    width: 300px;
+    height: 188px;
+    padding: 0;
+    border: 1px solid rgba(129, 140, 248, 0.22);
+    border-radius: 16px;
+    overflow: hidden;
+    background: #0c0a1d;
+    margin: 0;
+}
+
+.campus-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.6s ease;
+}
+
+.campus-card:hover img {
+    transform: scale(1.06);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .campus-track {
+        animation: none;
+    }
+
+    .campus-set--clone {
+        display: none;
+    }
+
+    .campus-marquee {
+        -webkit-mask-image: none;
+        mask-image: none;
+        overflow: visible;
+        padding: 0 24px;
+    }
+
+    .campus-set {
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        padding-right: 0;
+    }
+}
+
+/* ============================================
    RESPONSIVE DESIGN
    ============================================ */
 
@@ -2020,10 +2022,14 @@ section {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .campus-card {
+        width: 240px;
+        height: 160px;
+    }
+
     .products-grid {
-        grid-template-columns: 1fr;
-        max-width: 480px;
-        margin: 0 auto;
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 720px;
     }
 
     .contact-info {

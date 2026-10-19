@@ -231,7 +231,8 @@ async function renderSlideToCanvas(target, scale) {
   });
 }
 
-async function captureSlide(index, scale = 2) {
+async function captureSlide(index, scale = 2, options = {}) {
+  const { skipPreload = false, settleMs = 80, keepExportMode = false, skipChrome = false } = options;
   const slides = slideEls();
   const target = slides[index];
   if (!target) return null;
@@ -239,22 +240,25 @@ async function captureSlide(index, scale = 2) {
   const wasActive = target.classList.contains("active");
   slides.forEach((s, i) => s.classList.toggle("active", i === index));
 
-  document.body.classList.add("export-mode");
-  const hidden = hideExportChrome();
+  const addedExportMode = !document.body.classList.contains("export-mode");
+  if (addedExportMode) document.body.classList.add("export-mode");
+
+  const hidden = skipChrome ? [] : hideExportChrome();
 
   try {
-    await preloadSlideImages();
+    if (!skipPreload) await preloadSlideImages();
     await waitForImages(target);
 
-    // Apply cached image data to live slide before capture (helps Chat2Bill dashboard slide)
     target.querySelectorAll("img[src]").forEach((img) => {
       const src = img.getAttribute("src");
       const cached = imageCache.get(src);
       if (cached) img.src = cached;
     });
 
-    // Let export-mode styles apply and layout settle before capture
-    await new Promise((r) => setTimeout(r, 500));
+    if (settleMs > 0) {
+      await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+      if (settleMs > 32) await new Promise((r) => setTimeout(r, settleMs));
+    }
 
     try {
       return await renderSlideToCanvas(target, scale);
@@ -263,23 +267,29 @@ async function captureSlide(index, scale = 2) {
       return await renderSlideToCanvas(target, 1);
     }
   } finally {
-    restoreExportChrome(hidden);
-    document.body.classList.remove("export-mode");
-    if (!wasActive) slides.forEach((s, i) => s.classList.toggle("active", i === current));
+    if (!skipChrome) restoreExportChrome(hidden);
+    if (addedExportMode && !keepExportMode) document.body.classList.remove("export-mode");
+    if (!keepExportMode && !wasActive) slides.forEach((s, i) => s.classList.toggle("active", i === current));
   }
 }
 
-function addCanvasToPdf(pdf, canvas, isFirstPage) {
+function addCanvasToPdf(pdf, canvas, isFirstPage, options = {}) {
+  const { fast = false } = options;
   const w = canvas.width;
   const h = canvas.height;
   let imgData;
   let format = "PNG";
 
-  try {
-    imgData = canvas.toDataURL("image/png", 1.0);
-  } catch {
-    imgData = canvas.toDataURL("image/jpeg", 0.92);
+  if (fast) {
+    imgData = canvas.toDataURL("image/jpeg", 0.9);
     format = "JPEG";
+  } else {
+    try {
+      imgData = canvas.toDataURL("image/png", 1.0);
+    } catch {
+      imgData = canvas.toDataURL("image/jpeg", 0.92);
+      format = "JPEG";
+    }
   }
 
   if (isFirstPage) {
@@ -293,7 +303,7 @@ function addCanvasToPdf(pdf, canvas, isFirstPage) {
     pdf.addPage([w, h], w >= h ? "landscape" : "portrait");
   }
 
-  pdf.addImage(imgData, format, 0, 0, w, h, undefined, "SLOW");
+  pdf.addImage(imgData, format, 0, 0, w, h, undefined, fast ? "FAST" : "SLOW");
   return pdf;
 }
 
@@ -337,39 +347,53 @@ async function downloadAllSlides(format = "png") {
   let pdf = null;
   let exportedCount = 0;
   let failedSlides = [];
+  const bulkScale = format === "pdf" ? 1.5 : 2;
 
-  for (let i = 0; i < total; i++) {
-    label.textContent = `Exporting slide ${i + 1} of ${total}…`;
-    fill.style.width = `${((i + 1) / total) * 100}%`;
+  document.body.classList.add("export-mode");
+  const hidden = hideExportChrome();
 
-    try {
-      const canvas = await captureSlide(i, 2);
-      if (!canvas) {
-        failedSlides.push(i + 1);
-        continue;
-      }
+  try {
+    for (let i = 0; i < total; i++) {
+      label.textContent = `Exporting slide ${i + 1} of ${total}…`;
+      fill.style.width = `${((i + 1) / total) * 100}%`;
 
-      exportedCount += 1;
-      const name = `Soseeks_Slide_${String(i + 1).padStart(2, "0")}_${SLIDES[i].title.replace(/\s+/g, "_")}`;
-
-      if (format === "png") {
-        const link = document.createElement("a");
-        link.download = `${name}.png`;
-        link.href = canvas.toDataURL("image/png", 1.0);
-        link.click();
-        await new Promise((r) => setTimeout(r, 400));
-      } else {
-        try {
-          pdf = addCanvasToPdf(pdf, canvas, pdf === null);
-        } catch (pdfErr) {
-          console.error(`Slide ${i + 1} PDF page failed:`, pdfErr);
+      try {
+        const canvas = await captureSlide(i, bulkScale, {
+          skipPreload: true,
+          settleMs: i === 0 ? 80 : 40,
+          keepExportMode: true,
+          skipChrome: true,
+        });
+        if (!canvas) {
           failedSlides.push(i + 1);
+          continue;
         }
+
+        exportedCount += 1;
+        const name = `Soseeks_Slide_${String(i + 1).padStart(2, "0")}_${SLIDES[i].title.replace(/\s+/g, "_")}`;
+
+        if (format === "png") {
+          const link = document.createElement("a");
+          link.download = `${name}.png`;
+          link.href = canvas.toDataURL("image/png", 1.0);
+          link.click();
+          await new Promise((r) => setTimeout(r, 200));
+        } else {
+          try {
+            pdf = addCanvasToPdf(pdf, canvas, pdf === null, { fast: true });
+          } catch (pdfErr) {
+            console.error(`Slide ${i + 1} PDF page failed:`, pdfErr);
+            failedSlides.push(i + 1);
+          }
+        }
+      } catch (e) {
+        console.error(`Slide ${i + 1} failed:`, e);
+        failedSlides.push(i + 1);
       }
-    } catch (e) {
-      console.error(`Slide ${i + 1} failed:`, e);
-      failedSlides.push(i + 1);
     }
+  } finally {
+    restoreExportChrome(hidden);
+    document.body.classList.remove("export-mode");
   }
 
   if (format === "pdf" && pdf) {
