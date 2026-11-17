@@ -858,6 +858,7 @@ section {
     backdrop-filter: blur(4px);
 }
 
+.cube .face { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
 .cube .front  { transform: translateZ(30px); }
 .cube .back   { transform: rotateY(180deg) translateZ(30px); }
 .cube .right  { transform: rotateY(90deg) translateZ(30px); }
